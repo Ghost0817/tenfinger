@@ -3,6 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  production: false,
+  api_url: 'http://127.0.0.1:8080',
+  socket_url: 'http://127.0.0.1:8080',
+  recaptcha: {
+    siteKey: '6LewJpYdAAAAALl1UtU0pd-Nso_DhedaDF0eeyt2',
+  },
   production: false
 };
 
