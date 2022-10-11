@@ -118,88 +118,9 @@ ng g service core/services/api
 
 ng g service core/services/wsapi
 
-ng g interceptor core\interceptors\auth
+ng g interceptor core/interceptors/auth
 
 # Created
 
-ng g module --routing=true pages/student
-
-ng g component pages/student
-
-ng g module --routing=true pages/student/lessons
-
-ng g component pages/student/lessons
-
-ng g module --routing=true pages/student/gamesList
-
-ng g component pages/student/gamesList
-
-ng g module --routing=true pages/student/skins
-
-ng g component pages/student/skins
-
-ng g module --routing=true pages/student/tutorTyping
-
-ng g component pages/student/tutorTyping
-
-ng g module --routing=true pages/student/testTyping
-
-ng g component pages/student/testTyping
-
-ng g module --routing=true pages/student/hallOfFame
-
-ng g component pages/student/hallOfFame
-
-ng g module --routing=true pages/student/register
-
-ng g component pages/student/register
-
-ng g module --routing=true pages/student/login
-
-ng g component pages/student/login
-
-ng g module --routing=true pages/student/forgot
-
-ng g component pages/student/forgot
-
-ng g module --routing=true pages/student/preferences
-
-ng g component pages/student/preferences
-
-ng g module --routing=true pages/student/contactUs
-
-ng g component pages/student/contactUs
-
-ng g module --routing=true pages/student/tests
-
-ng g component pages/student/tests
-
-ng g module --routing=true pages/student/resetPassword
-
-ng g component pages/student/resetPassword
-
-ng g module --routing=true pages/student/upgrade
-
-ng g component pages/student/upgrade
-
-ng g module --routing=true pages/student/statistics
-
-ng g component pages/student/statistics
-
-ng g module --routing=true pages/student/typeRace
-
-ng g component pages/student/typeRace
-
-ng g module --routing=true pages/student/raceYourFriends
-
-ng g component pages/student/raceYourFriends
-
-ng g module --routing=true pages/student/practiceYourself
-
-ng g component pages/student/practiceYourself
-
-ng g module --routing=true pages/student/enterTypingRace
-
-ng g component pages/student/enterTypingRace
 
 
