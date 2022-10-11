@@ -186,8 +186,20 @@ ng g module --routing=true pages/student/statistics
 
 ng g component pages/student/statistics
 
-ng g module --routing=true pages/student/racewithfriends
+ng g module --routing=true pages/student/typeRace
 
-ng g component pages/student/racewithfriends
+ng g component pages/student/typeRace
+
+ng g module --routing=true pages/student/raceYourFriends
+
+ng g component pages/student/raceYourFriends
+
+ng g module --routing=true pages/student/practiceYourself
+
+ng g component pages/student/practiceYourself
+
+ng g module --routing=true pages/student/enterTypingRace
+
+ng g component pages/student/enterTypingRace
 
 
