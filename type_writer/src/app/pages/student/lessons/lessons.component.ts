@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
+import { ApiService } from 'src/app/core/services/api.service';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-lessons',
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LessonsComponent implements OnInit {
 
-  isAuthenticated:boolean = false;
+  isAuthenticated: boolean = false;
   currentUser: any;
   cateroties: any = [];
   lessons: any = [];
@@ -29,13 +32,6 @@ export class LessonsComponent implements OnInit {
     this.api.get('/wall-of-fame').subscribe(response => {
       this.wallOfFame = response;
     });
-
-    this.userService.isAuthenticated.pipe(distinctUntilChanged()).subscribe(isAuth =>{
-      this.isAuthenticated = isAuth
-    })
-    this.userService.currentUser.pipe(distinctUntilChanged()).subscribe(user => {
-      this.currentUser = user;
-    })
   }
 
   ngOnInit(): void {
