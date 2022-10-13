@@ -1,1 +1,149 @@
-<p>preferences works!</p>
+<div class="my_content">
+
+    <div class="right_ads">
+
+        <x-tip-box></x-tip-box>
+
+        <x-skill-level></x-skill-level>
+
+        <x-hall-of-fame [wallOfFame]="wallOfFame"></x-hall-of-fame>
+    </div>
+
+    <div class="content">
+
+        <div class="panel panel-default">
+
+            <div class="panel-heading">Profile</div>
+
+            <div class="panel-body">
+
+                <form class="form-container" [formGroup]="profileForm" (ngSubmit)="profileSubmit($event)">
+                    
+
+                    <x-input formControlName="username" fieldType="text" fieldName="username" [parentForm]="profileForm" formLabel="Username" ></x-input>
+                    
+                    <x-input formControlName="email" fieldType="email" fieldName="email" [parentForm]="profileForm" formLabel="Email"></x-input>
+
+                    <x-input formControlName="firstname" fieldType="text" fieldName="firstname" [parentForm]="profileForm" formLabel="First Name"></x-input>
+                    
+                    <x-input formControlName="lastname" fieldType="text" fieldName="lastname" [parentForm]="profileForm" formLabel="Last Name"></x-input>
+
+                    <x-select formControlName="mygender" fieldType="radio" fieldName="gender" [parentForm]="profileForm" formLabel="Gender" [choices]="genderList"></x-select>
+                    
+                    <x-messages msgType="success" msgText="Save Successful"></x-messages>
+
+                    <br/>
+
+                    <div *ngIf="isProfilePosted" class="form-row">
+                        <div class="input-group">
+                            <x-messages [msgType]="'success'" [msgText]="'Save Successful'"></x-messages>
+                        </div>
+                    </div>
+                
+                    <div class="form-row">
+                        <div class="input-group">
+                            <x-button text="Save changes »" type="submit" [parentForm]="profileForm"></x-button>
+                        </div>
+                    </div>
+                    <!--<a href="#" class="policy" target="_blank">{%trans%}Privacy Policy{%endtrans%}</a>-->
+
+
+                </form>
+
+                {{ profileForm.value| json }}
+
+            </div>
+        </div>
+
+<!-- 
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Options</div>
+            <div class="panel-body">
+
+                <form class="form-container" [formGroup]="optionsForm" (ngSubmit)="optionsSubmit($event)">
+                    
+                    <x-checkbox formControlName="measureSpeed" fieldName="measureSpeed" [parentForm]="profileForm" formLabel="measureSpeed" value="M"></x-checkbox>
+                    <x-checkbox formControlName="measureSpeed" fieldName="measureSpeed" [parentForm]="profileForm" formLabel="measureSpeed" valu="F"></x-checkbox>
+                    
+                    <x-checkbox formControlName="enableSounds" fieldName="enableSounds" [parentForm]="profileForm" formLabel="Enable Sounds" value="M"></x-checkbox>
+
+                    
+                    <div class="msg-success">
+                        test test tsetset stdstdst    
+                    </div>
+
+                    <br/>
+
+
+                    <div *ngIf="isProfilePosted" class="form-row">
+                        <div class="input-group">
+                            <x-messages [msgType]="'success'" [msgText]="'Save Successful'"></x-messages>
+                        </div>
+                    </div>
+                
+                    <div class="form-row">
+                        <div class="input-group">
+                            <x-button text="Save changes »" type="submit" [parentForm]="profileForm"></x-button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    -->
+        <div class="panel panel-default">
+            <div class="panel-heading">Keyboard layout</div>
+            <div class="panel-body">
+
+                <form class="form-container" [formGroup]="leyboardLayoutForm" (ngSubmit)="leyboardLayoutSubmit($event)">
+                    
+                    <x-select formControlName="mykeyboard" fieldName="mykeyboard" [parentForm]="profileForm" formLabel="Keyboard" [choices]="keyboard"></x-select>
+                
+                    <x-messages msgType="success" msgText="Save Successful"></x-messages>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <x-button text="Save changes »" type="submit" [parentForm]="profileForm"></x-button>
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Change password</div>
+            <div class="panel-body">
+                <form class="form-container" [formGroup]="changePasswordForm" (ngSubmit)="changePasswordSubmit($event)">
+                    
+                    <x-input formControlName="password" fieldType="password" fieldName="password" [parentForm]="changePasswordForm" formLabel="Password"></x-input>
+                        
+                    <x-input formControlName="newpassword" fieldType="password" fieldName="newpassword" [parentForm]="changePasswordForm" formLabel="New Password"></x-input>
+                    
+                    <x-input formControlName="newre_password" fieldType="password" fieldName="newre_password" [parentForm]="changePasswordForm" formLabel="New Repassword"></x-input>
+                    
+                    <x-messages msgType="success" msgText="Save Successful"></x-messages>
+
+                    <div *ngIf="isProfilePosted" class="form-row">
+                        <div class="input-group">
+                            <x-messages [msgType]="'success'" [msgText]="'Save Successful'"></x-messages>
+                        </div>
+                    </div>
+                
+                    <div class="form-row">
+                        <div class="input-group">
+                            <x-button text="Update Password »" type="submit" [parentForm]="profileForm"></x-button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
