@@ -7,12 +7,20 @@ import { UserService } from 'src/app/core/services/user.service';
   styleUrls: ['./student.component.scss']
 })
 export class StudentComponent implements OnInit {
-  welcome = '';
-  constructor(private userService: UserService) { }
+  public isAuthenticated:boolean = false
+  public currentUser: any
+  public menu:any;
+
+  constructor(private router: Router,
+              private userService: UserService) { 
+  }
 
   ngOnInit(): void {
-    this.welcome = this.userService.isLoggedIn ?
-      'Welcome, ' + this.userService.user.name : 'Please log in.';
+  }
+
+  logout(){
+    localStorage.removeItem('accessToken');
+    this.router.navigateByUrl('/student/login');
   }
 
 }
