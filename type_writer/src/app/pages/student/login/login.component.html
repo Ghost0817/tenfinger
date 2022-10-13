@@ -1,1 +1,49 @@
-<p>login works!</p>
+<div class="login-page">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="login-box">
+                <h1 style="text-align:left;">Already have an account?</h1>
+                <p>Please log in to continue.</p>
+                <div *ngIf="getError() == true; then error"></div>
+                <ng-template #error>
+                    <div class="msg-error">error.message</div>
+                </ng-template>
+                <div *ngIf="getGrade() == true; then grade"></div>
+                <ng-template #grade>
+                    <div class="msg-info">You are requesting to join %name%'s class: <h3>Grade name is here</h3></div>
+                </ng-template>
+
+
+                <form class="form-container" [formGroup]="regForm" (ngSubmit)="login()">
+
+                    <x-input formControlName="username" fieldType="text" fieldName="username" [parentForm]="regForm" formLabel="Username"></x-input>
+
+                    <x-input formControlName="password" fieldType="password" fieldName="password" [parentForm]="regForm" formLabel="Password"></x-input>
+
+                    <input type="hidden" name="_csrf_security_token" value="testy" />
+                    <input type="hidden" name="_target_path" value="homepage" />
+
+                    <input type="submit" name="login" class="btn btn-defualt" (click)="login()" value="Login"/>
+                    <br /><br />
+                    <a routerLink="/student/forgot" routerLinkActive="active" target="_BLANK" class="sign-up">I forgot my password!</a>
+                </form>
+            </div>
+
+            <div class="register-box">
+                <h1>Don't have an account?</h1>
+                <p class="lead">Bicheech.com is free!</p>
+                <ul class="list-unstyled" style="line-height: 2">
+                    <li><span class="fa fa-check fa-lg" aria-hidden="true"></span>No Download, Just type</li>
+                    <li><span class="fa fa-check fa-lg" aria-hidden="true"></span>Perfect for All Ages</li>
+                    <li><span class="fa fa-check fa-lg" aria-hidden="true"></span>Bicheech.com's full typing curriculum</li>
+                    <li><span class="fa fa-check fa-lg" aria-hidden="true"></span>Lessons for All Skill Levels</li>
+                </ul>
+                <p><a routerLink="/student/signup" routerLinkActive="active" class="btn btn-info btn-block">Sign Up Now »</a></p>
+            </div>
+                <div class="teacherCallout">Та <strong>багш</strong> уу? Та одоо манай үнэгүй цоо шинэ <a href="/teacher/login" target="_BLANK">Багш Портал</a> ашиглан өөрийн бүх ангийг удирдаж болно!</div>
+
+                <div class="teacherCallout">Are you a <strong>teacher</strong>? You can now manage your entire classroom for free using our brand new <a href="/teacher/login" target="_BLANK">Teacher Portal</a>!</div>
+
+        </div>
+    </div>
+</div>
