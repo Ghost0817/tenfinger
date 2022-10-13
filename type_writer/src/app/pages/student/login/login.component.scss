@@ -1,0 +1,55 @@
+.login-page{
+    width: 572px;
+    margin: 60px auto;
+    display: block;
+
+  .panel{
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+    box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+    margin-right: 5px;
+    margin-left: 5px;
+    &.panel-default {
+      border-color: #ddd;
+    }
+    .panel-body {
+      padding: 15px;
+      display: flow-root;
+
+      .login-box{width: 50%;display: block;float: left;
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+        h1{
+          font-size: 16px;
+          text-align: left;
+        }
+      }
+      .register-box{width: 50%;display: block;float: right;
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+        background-color: #d7d7d7;
+        h1{
+          font-size: 16px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+.teacherCallout {
+    clear: both;
+    background: #d9edf7 url(../../../../assets/css/images/apple.png) no-repeat 12px 8px;
+    margin-top: 10px;
+    float: left;
+    padding: 10px 30px 10px 60px;
+    line-height: 18px;
+    font-size: 13px;
+    width: 100%;
+}
