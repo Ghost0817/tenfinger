@@ -1,1 +1,41 @@
-<p>forgot works!</p>
+
+<div *ngIf="showSuccessPage == true; then Rform else Cform"></div>
+<ng-template #Cform>
+    <div class="register-box">
+        <div class="panel panel-default">
+            <div class="panel-heading">Forgot password</div>
+            <div class="panel-body">
+        
+                <form class="form-container" [formGroup]="regForm" (ngSubmit)="onSubmit($event)">
+                    <x-input formControlName="email" fieldType="email" fieldName="email" [parentForm]="regForm" formLabel="Email"></x-input>
+    
+                    <re-captcha id="recaptcha" name="recaptcha" formControlName="recaptcha" [(ngModel)]="token" required [class.is-invalid]="recaptchaField?.invalid && (recaptchaField?.dirty || recaptchaField?.touched)"></re-captcha>
+                    <div *ngIf="recaptchaField?.invalid && (recaptchaField?.dirty || recaptchaField?.touched)" class="invalid-feedback">
+                      <div *ngIf="recaptchaField?.errors?.['required']">This field is required.</div>
+                    </div>
+    
+    
+                    <div class="form-row">
+                        <div class="input-group">
+                            <x-button text="Submit" type="submit" [parentForm]="regForm"></x-button>
+                        </div>
+                    </div>
+                </form>
+        
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #Rform>
+    <div class="register-box">
+        <div class="panel panel-default">
+            <div class="panel-heading">Password reset confirmation sent!
+            </div>
+            <div class="panel-body">
+                <p>We’ve sent you an email containing a link that will allow you to reset your password for the next 24 hours.</p>
+                <p>Please check your spam folder if the email doesn’t appear within a few minutes.</p>
+                <a routerLink="/student/login" class="btn btn-defualt" >Return to login »</a>
+            </div>
+        </div>
+    </div>
+</ng-template>
