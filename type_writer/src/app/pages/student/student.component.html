@@ -1,1 +1,91 @@
-<p>student works!</p>
+<header class="header">
+    <div class="header-links">
+        <div class="extra_layout">
+            <div class="extra_box">
+                <div class="extra_item text pull-left">free online typing tutor.</div>
+
+                <a class="extra_item text topRetrievedMenu">
+                    
+                </a>
+                <div id="TopExtraNav" class="pull-right">
+                    
+                    <a routerLink="/student/hall-of-fame" routerLinkActive="active" class="extra_item text">Hall Of Flame</a>
+                    <a routerLink="/student/contact-us" routerLinkActive="active" class="extra_item text">Contact Us</a>
+                    <div *ngIf="isAuthenticated; then preferShow"></div>
+                    <ng-template #preferShow><a routerLink="/student/preferences" routerLinkActive="active" class="extra_item text">Preferences</a></ng-template>
+                    <a class="extra_item text">|</a>
+
+                    <div *ngIf="isAuthenticated; then thenBlock else elseBlock"></div>
+                    <ng-template #thenBlock>
+                        <a class="extra_item text">Hi TENEGEE</a>
+                        <a routerLink="/student/logout" routerLinkActive="active" (click)="logout()" class="extra_item text">logout</a>
+                    </ng-template>
+                    <ng-template #elseBlock>
+                        <a routerLink="/student/login" routerLinkActive="active" class="extra_item text">Login</a>
+                        <a routerLink="/student/signup" routerLinkActive="active" class="extra_item text">Sign up</a>
+                    </ng-template>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-menu">
+        <div class="menu_layout">
+            <div class="menu-box">
+
+                <div class="logo-box">
+
+                    <a routerLink="/" routerLinkActive="active" title="Bicheech">
+                        <div class="logo">
+                            <svg width="168" height="41" xmlns="http://www.w3.org/2000/svg">
+                                <g>
+                                 <rect fill="none" id="canvas_background" height="43" width="170" y="-1" x="-1"/>
+                                 <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+                                  <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+                                 </g>
+                                </g>
+                                <g>
+                                 <text id="bicheech" font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_1" y="28.9375" x="4.5" stroke-width="0" stroke="#000" fill="#25c6d0">Bicheech</text>
+                                 <text id="dotcom" font-weight="normal" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_2" y="28.9375" x="110.5" stroke-width="0" stroke="#000" fill="#000000">.com</text>
+                                </g>
+                               </svg>
+                        </div>
+                    </a>
+                    <a class="extra_item text mainRetrievedMenu">
+                        
+                    </a>
+                    <div id="MainNav" class="sf-menu">
+                        <ul>
+                            <li routerLinkActive="current-menu-item">
+                                <a routerLink="/student/lessons">Lessons</a>
+                            </li>
+                            <li routerLinkActive="current-menu-item">
+                                <a routerLink="/student/games">Games</a>
+                            </li>
+                            <li routerLinkActive="current-menu-item">
+                                <a routerLink="/student/tests">Tests</a>
+                            </li>
+                            <li [ngClass]="{'current-menu-item': tasksActive.isActive || settingsActive.isActive }" routerLinkActive="current-menu-item">
+                                <a routerLink="/student/race">Race</a>
+                                <a routerLink="/student/race-your-friends" routerLinkActive #tasksActive="routerLinkActive" style="display: none"></a>
+                                <a routerLink="/student/practice-yourself" routerLinkActive #settingsActive="routerLinkActive" style="display: none"></a>
+                            </li>
+                            <li routerLinkActive="current-menu-item">
+                                <a routerLink="/student/statistics">Statistics</a>
+                            </li>
+                            <li routerLinkActive="current-menu-item">
+                                <a routerLink="/student/skins">Skins</a>
+                            </li>
+                            <li routerLinkActive="current-menu-item">
+                                <a routerLink="/student/upgrade" title="Remove ads" class="removezaren"></a>
+                            </li>
+                        
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{{menu}}
+<router-outlet ></router-outlet>
