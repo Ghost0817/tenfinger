@@ -1,0 +1,26 @@
+
+  .typing-container {
+    display: grid;
+    grid-template-areas: 
+    'left_zar top_zar top_zar top_zar top_zar'
+    'left_zar container container container right_bar';
+    grid-gap: 20px;
+    grid-template-columns: 160px 1fr 1fr 1fr 160px;
+  
+    .top-zar {
+      grid-area: top_zar;
+      min-width: 970px;
+    }
+  
+    .left-zar {
+      grid-area: left_zar;
+    }
+
+    .right_bar {
+      grid-area: right_bar;
+    }
+  
+    .container-main {
+      grid-area: container;
+    }
+  }
