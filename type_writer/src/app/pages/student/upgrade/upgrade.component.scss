@@ -1,0 +1,23 @@
+/********************
+ *    start upgrade *
+ ********************/
+.my_content .upgrade_content{
+    float:right;
+    width:780px;
+    display:block;
+    margin-top:10px;
+    background:url(~src/assets/images/upgrade_bg.jpg) scroll no-repeat 0 0 #f6f7f9;
+    .upgrade_head{
+        float:left;display:inline-block;clear:both;width:100%;margin-left:20px;
+        margin-top:20px;
+        .upgrade_info{width:350px;display:block;float:left;}
+        .upgrade_info h1{height:95px;margin-bottom:15px;padding-top:10px;padding-left:120px;color:#25C6D0;font-size:50px;line-height:45px;background:url(~src/assets/images/upgrade_logo.png) no-repeat 0 0;}
+        .upgrade_info h2{font-size:18px;color:#4A4947;margin-bottom:10px;}
+    }
+    .upgrade_body{width:750px;display:block;float:left;margin-left:20px;
+        margin-right:10px;
+        .titlewithline{font-size: 22px;color:#25C6D0;margin-top: 30px;margin-bottom: 20px;background: url(~src/assets/images/upgrade_divider.png) repeat-x 0 center;float:left;width:100%;}
+        .titlewithline span{display:inline-block;background:#f6f7f9;padding-right:15px;color: #25C6D0;font-size: 22px;}
+        .whatis{font-size: 15px;font-weight: bold;color: #6C6C6C;margin-bottom: 5px;}
+    }
+}
