@@ -1,1 +1,56 @@
-<p>upgrade works!</p>
+<div class="my_content">
+    <div class="upgrade_content">
+        <div class="upgrade_head">
+            <div class="upgrade_info">
+                <h1>Premium Account</h1>
+                <h2>Unlock Your Full Typing Potential!</h2>
+                <p>Get the most out of your time on Bicheech. For a small fee you can unlock extra premium lessons.</p>
+            </div>
+        </div>
+        <div class="upgrade_body">
+            <h3 class="titlewithline">
+                <span>Premium Packages</span>
+            </h3>
+
+            <div class="dm3-pricing dm3-pricing-2">
+
+                <div class="dm3-pricing-column" *ngFor="let upgrade of upgradeData">
+                    <div class="dm3-pricing-header">
+                        <h2>{{upgrade.id}}</h2>
+                    </div>
+                    <div class="dm3-pricing-price">
+                        <span>{{ upgrade.price }}₮</span>
+                        <i>/ {{getConditionTerm(upgrade)}}</i>
+                    </div>
+                    <div class="dm3-pricing-options">
+                        <ul>
+                            <li>{{ upgrade.conditionOne }}</li>
+                            <li>{{ upgrade.conditionTwo }}</li>
+                            <li>{{ upgrade.conditionThree }}</li>
+                        </ul>
+                    </div>
+                    <div class="dm3-pricing-actions">
+                        <a class="dm3-btn" href="">Upgrade Now</a>
+                    </div>
+                </div>
+
+                upgradeData
+
+                No upgrade service have been found.
+
+
+
+            </div>
+            <br/><br/><br/>
+            <h2 class="whatis">Are Yearly Charges Auto-Recurring?</h2>
+            <p>No, charges are never auto-recurring. For yearly membership types, we will only charge you once. When your membership expires you can optionally choose to renew.</p>
+            <br/><br/><br/>
+            <h2 class="whatis">What are Premium Lessons?</h2>
+            <p>Recommended for anyone truly interested in getting the most out of Bicheech, we offer 16 extra premium lessons including individual finger exercises, common medical terms, numeric data entry, as well as fun and interesting facts to keep your learning time fresh and fun.</p>
+            <br/><br/><br/>
+            <h2 class="whatis">What is Priority Email Support?</h2>
+            <p>Have a question about your account, or about getting the most out of Bicheech? Premium members are guaranteed a fast response from our team of experts.</p>
+            <br/><br/><br/>
+        </div>
+    </div>
+</div>
