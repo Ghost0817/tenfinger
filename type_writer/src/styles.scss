@@ -1,1 +1,203 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+/* CSS Document */
+/* defualt */
+
+/* dark */
+//color :#717474;
+//background-color: #121817;
+
+/**
+ * basic style sheet
+ *
+ * Sainzaya.b
+ */
+ @keyframes animatedBackground {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
+}
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    height:100%;
+}
+body {
+    margin: 0;
+    height:100%;background-color:#f2f2f2;
+}
+body, p, label, span {
+    padding: 0;
+    font-family: Arial,sans-serif;
+    font-size: 12px;
+    color: #333;
+
+}
+a {
+    background-color: transparent;
+    color: #25c6d0;
+    text-decoration: none;
+}
+/* pt-mono-regular - cyrillic */
+@font-face {
+    font-family: 'PT Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('assets/fonts/pt-mono-v7-cyrillic-regular.eot'); /* IE9 Compat Modes */
+    src: local('PT Mono'), local('PTMono-Regular'),
+         url('assets/fonts/pt-mono-v7-cyrillic-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('assets/fonts/pt-mono-v7-cyrillic-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('assets/fonts/pt-mono-v7-cyrillic-regular.woff') format('woff'), /* Modern Browsers */
+         url('assets/fonts/pt-mono-v7-cyrillic-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('assets/fonts/pt-mono-v7-cyrillic-regular.svg#PTMono') format('svg'); /* Legacy iOS */
+}
+@keyframes cursorBlink{0%{border-color:#3295db}50%{border-color:transparent}100%{border-color:#3295db}}
+@keyframes error{0%{opacity:0}25%{opacity:1}100%{opacity:0}}
+@keyframes error-shake{0%{opacity:0;transform:translateX(0) translateY(0)}15%{transform:translateX(-25%) translateY(7.5%) rotate(-10deg)}30%{opacity:1;transform:translateX(20%) translateY(15%) rotate(5deg)}45%{transform:translateX(-15%) translateY(22.5%) rotate(-5deg)}60%{transform:translateX(10%) translateY(30%) rotate(3deg)}75%{transform:translateX(-5%) translateY(37.5%) rotate(-1deg)}100%{opacity:0;transform:translateX(0) translateY(50%)}}
+
+
+
+typing-content {
+    font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+    line-height: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+    font-family: PT Mono,"Courier New",Courier,"Lucida Sans Typewriter","Lucida Typewriter",monospace;
+}
+
+.mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button{
+    border: none;
+}
+
+.my_content{
+  width:950px;
+  display:block;
+  margin:auto;
+  margin-top: 10px;
+  .content{
+    float:right;
+    width:610px;
+    min-height:250px;
+    display:block;
+  }
+  .right_ads{
+    float:right;
+    width:160px;
+    min-height:250px;
+    display:block;
+    margin-left:10px;
+  }
+  .left_bar{
+    float:left;
+    width:160px;
+    display:block;
+  }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.panel-body {
+    padding: 15px;
+}
+.panel-heading {
+    padding: 10px 15px;
+    position: relative;
+    text-align: left;
+    background: #f2f2f2;
+    background: #f0f0f0;
+    background: -webkit-linear-gradient(top,#f7f7f7,#eaeaea);
+    background: linear-gradient(to bottom,#f7f7f7,#eaeaea);
+    border-radius: 4px 4px 0 0;
+    border-bottom: 1px solid #cdcdcd;
+    border-bottom-color: rgba(0,0,0,.2);
+    box-shadow: 0 1px 0 rgba(255,255,255,.5) inset,0 -1px 0 rgba(255,255,255,.4) inset;
+    margin: 0;
+}
+.panel-heading > .dropdown .dropdown-toggle {
+    color: inherit;
+}
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit;
+}
+.panel-title > a,
+.panel-title > small,
+.panel-title > .small,
+.panel-title > small > a,
+.panel-title > .small > a {
+    color: inherit;
+}
+.panel-footer {
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.panel-default {
+  border-color: #ddd;
+}
+.panel-default > .panel-heading {
+  color: #333;
+  background-color: #f5f5f5;
+  border-color: #ddd;
+  font-weight: bold;
+  font-size: 11px;
+}
+.panel-default > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #ddd;
+}
+.panel-default > .panel-heading .badge {
+  color: #f5f5f5;
+  background-color: #333;
+}
+.panel-default > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #ddd;
+}
+.panel-danger {
+    border-color: #ebccd1;
+}
+.panel-danger > .panel-heading {
+    background-color: #df3e3e;
+    border: 1px solid #a00;
+    color: #fff;
+    text-shadow: 0 -1px 0 #900;
+    font-weight: bold;
+    font-size: 13px;
+}
+.panel-danger > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #ebccd1;
+}
+.panel-danger > .panel-heading .badge {
+  color: #f2dede;
+  background-color: #a94442;
+}
+.panel-danger > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #ebccd1;
+}
