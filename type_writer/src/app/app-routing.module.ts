@@ -8,7 +8,8 @@ const routes: Routes = [{
   pathMatch: 'full'
 },{
   path: 'student',
-  loadChildren: () => import('./pages/student/student.module').then(m => m.StudentModule)
+  loadChildren: () => import('./pages/student/student.module').then(m => m.StudentModule),
+  title: 'Learn to Type | Free Typing Tutor | Typing Course - Bicheech.com'
 }];
 
 @NgModule({
