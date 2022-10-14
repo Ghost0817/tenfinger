@@ -19,6 +19,7 @@ export class LessonsComponent implements OnInit {
   wallOfFame: any;
 
   constructor(private meta: Meta,private api: ApiService,private userService: UserService) {
+    this.meta.addTag({ name: 'keywords', content: '10 finger typing, ten finger typing, typing fast with ten finger, ten finger exercises, bicheech.com, bicheech, typing' });
     this.meta.addTag({ name: 'description', content: 'An online application for typing fast with ten fingers.' });
 
     this.api.get('/lesson').subscribe(response => {
