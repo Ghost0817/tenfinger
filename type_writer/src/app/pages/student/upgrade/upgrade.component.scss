@@ -21,3 +21,58 @@
         .whatis{font-size: 15px;font-weight: bold;color: #6C6C6C;margin-bottom: 5px;}
     }
 }
+/**************************
+ * Price table
+ **************************/
+
+ .dm3-pricing {
+    padding:0;
+    margin:30px 0 20px 0;
+    &:after {display:table;content:'';clear:both;}
+}
+ .dm3-pricing-column {margin-right:-1px;float:left;position:relative;word-wrap:break-word;}
+ .dm3-pricing-2 .dm3-pricing-column {width:50.03%;}
+ .dm3-pricing-3 .dm3-pricing-column {width: 33.39%;}
+ .dm3-pricing-4 .dm3-pricing-column {width: 25.07%;}
+ .dm3-pricing-5 .dm3-pricing-column {width: 20.08%;}
+ 
+ /* Header */
+ .dm3-pricing-header {padding:15px 10px;border:1px solid #ddd;text-align: center;}
+ body .dm3-pricing-header h2 {margin:0;font-size:20px;line-height:24px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;}
+ 
+ /* Price */
+ .dm3-pricing-price {padding:15px 10px;border:1px solid #ddd;border-top:0;text-align:center;
+    span {font-weight:bold;font-size:24px;line-height:27px;}
+    i {color:#999;}
+}
+ 
+ /* Options */
+ .dm3-pricing-options {border:1px solid #ddd;border-top:0;
+ }
+ 
+.dm3-pricing-options ul {margin:0;padding:0;}
+.dm3-pricing-options li {padding:10px;margin:0 !important;list-style:none;text-align:center;}
+.dm3-pricing-options li + li {border-top:1px dotted #ddd;}
+ 
+/* Actions */
+.dm3-pricing-actions {padding:15px 10px;border:1px solid #ddd;border-top:0;text-align:center;}
+.dm3-pricing-button {display:inline-block;padding:5px 15px;color:#fff;background-color:#999;text-decoration:none;
+    &:hover {color: #fff;}
+}
+ .dm3-pricing-button
+ 
+ /* Featured */
+ .dm3-pricing-featured {
+    margin-top:-19px;z-index:2;box-shadow:0 0 0 4px #f0f0f0;
+    .dm3-pricing-header {padding:25px 10px;}
+    .dm3-pricing-header h2 {font-size:26px;line-height:30px;}
+    .dm3-pricing-price {padding:20px 10px;}
+    .dm3-pricing-button {background-color:#333;}
+}
+ 
+ @media screen and (max-width: 767px) {
+     .dm3-pricing-column {width: auto !important;float:none;}
+     .dm3-pricing-column + .dm3-pricing-column {margin-top:20px;}
+     .dm3-pricing-featured {margin-top:0;}
+     .dm3-pricing-featured .dm3-pricing-actions {padding:20px 10px;}
+ }
