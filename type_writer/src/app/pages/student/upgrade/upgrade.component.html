@@ -7,7 +7,7 @@
                 <p>Get the most out of your time on Bicheech. For a small fee you can unlock extra premium lessons.</p>
             </div>
         </div>
-        <div class="upgrade_body">
+        <div class="upgrade_body" *ngIf="!showPayInfo">
             <h3 class="titlewithline">
                 <span>Premium Packages</span>
             </h3>
@@ -51,6 +51,31 @@
             <h2 class="whatis">What is Priority Email Support?</h2>
             <p>Have a question about your account, or about getting the most out of Bicheech? Premium members are guaranteed a fast response from our team of experts.</p>
             <br/><br/><br/>
+        </div>
+        <div class="upgrade_body" *ngIf="showPayInfo">
+            <h3 class="titlewithline">
+                <span>Payment Information</span>
+            </h3>
+    
+            <h3 class="titlewithline">
+                <span>Total Price</span>
+            </h3>
+            <h3 id="total-cost" style="color: #4a4947;">{{ currUpgrade.id }} Membership ({{getConditionTerm(currUpgrade)}}) - {{ currUpgrade.price }}₮ MNT</h3>
+            <p><span class="left">* This is a one time fee. You will not be charged again unless initiated by you.</span></p>
+    
+            <br/>
+    
+            <!-- {{ form_start(form) }}
+    
+            {{ form_widget(form._token) }}
+            {% if(form._token.vars.errors|length) %}
+                <div class="msg-error">{{ form_errors(form._token) }}</div>
+            {% endif %}
+            {{ form_errors(form) }}
+            {{ form_end(form) }} -->
+    
+            <br/><br/>
+    
         </div>
     </div>
 </div>
