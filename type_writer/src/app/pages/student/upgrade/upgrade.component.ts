@@ -33,6 +33,10 @@ export class UpgradeComponent implements OnInit {
     conditionThree: '-'
   }];
 
+  currUpgrade: any = {id: '',conditionTerm: '',price: '',featured: '',conditionOne: '',conditionTwo: '',conditionThree: ''};
+
+  showPayInfo: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -47,6 +51,11 @@ export class UpgradeComponent implements OnInit {
     }
 
     return resultStr;
+  }
+
+  setCurrUpgrade(obj: any): void {
+    this.currUpgrade = obj;
+    this.showPayInfo = true;
   }
 
 }
