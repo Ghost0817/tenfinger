@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-x-tip-box',
+  selector: 'x-tip-box',
   templateUrl: './x-tip-box.component.html',
   styleUrls: ['./x-tip-box.component.scss']
 })

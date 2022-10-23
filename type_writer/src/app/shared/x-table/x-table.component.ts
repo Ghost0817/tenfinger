@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-x-table',
+  selector: 'x-table',
   templateUrl: './x-table.component.html',
   styleUrls: ['./x-table.component.scss']
 })

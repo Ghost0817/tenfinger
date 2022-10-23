@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-x-dialog',
+  selector: 'x-dialog',
   templateUrl: './x-dialog.component.html',
   styleUrls: ['./x-dialog.component.scss']
 })

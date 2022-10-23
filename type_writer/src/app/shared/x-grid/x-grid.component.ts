@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-x-grid',
+  selector: 'x-grid',
   templateUrl: './x-grid.component.html',
   styleUrls: ['./x-grid.component.scss']
 })

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-x-form',
+  selector: 'x-form',
   templateUrl: './x-form.component.html',
   styleUrls: ['./x-form.component.scss']
 })
