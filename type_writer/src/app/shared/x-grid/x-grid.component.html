@@ -1,1 +1,36 @@
 <p>x-grid works!</p>
+
+
+<div class="x-panel">
+  <div class="x-panel-bar">
+      test
+  </div>
+  <div class="x-panel-body">
+    <table class="responsive-table">
+      <!-- <caption>Top 10 Grossing Animated Films of All Time</caption> -->
+      <thead>
+        <tr>
+          <th></th>
+          <th *ngFor="let cols of columnDefs" scope="col">
+              <div class="x-grid-hd-text">{{cols['header']}}</div>
+
+              <ng-template [ngIf]="isSort">
+
+              </ng-template>
+              <div class=" sort-asc sort-desc"></div>
+              <div class="x-grid-hd-menu x-grid-hd-menu-open">
+              </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of rowData">
+          <td>-</td>
+          <td *ngFor="let cols of columnDefs">
+              {{item[cols['dataIndex']]}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

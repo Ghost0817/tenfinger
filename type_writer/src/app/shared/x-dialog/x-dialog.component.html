@@ -1,1 +1,28 @@
-<p>x-dialog works!</p>
+<div *ngIf="!disbaleMessage" class="sb-container">
+    <div class="sb-overlay"></div>
+    <div class="sb-wrapper">
+        <div class="sb-body">
+
+            <ng-content></ng-content>
+            <!-- <div class="pillar">
+                <div class="smallcaps">
+                    Test Length Estimate:aaaa
+                </div>
+                <h2 class="">16 minutes</h2>
+            </div>
+            <p class="">Based on an average typing speed of 30 wpm, this test will take 16 minutes to complete. Make
+                sure you have enough time to finish, otherwise you can <a routerLink="/student/tests">go back</a> and try a
+                different test.</p>
+            <p class="">
+                Take this 2 Page typing test as many times as you like, and be sure to show off your best results with
+                our shareable certificate of completion. On the next screen, the timer won't start until you start
+                typing! Continue typing through the content until the timer ends.
+            </p>
+            <div class="">
+                <button class="btn" data-tooltip="Tip: Press ENTER to continue" (click)="handleClick($event)">
+                    Continue
+                </button>
+            </div> -->
+        </div>
+    </div>
+</div>

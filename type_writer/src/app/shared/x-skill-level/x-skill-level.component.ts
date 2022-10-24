@@ -5,13 +5,10 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './x-skill-level.component.html',
   styleUrls: ['./x-skill-level.component.scss']
 })
-export class XSkillLevelComponent implements OnInit {
+export class XSkillLevelComponent {
   
   @Input() isAuthenticated:boolean = false;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

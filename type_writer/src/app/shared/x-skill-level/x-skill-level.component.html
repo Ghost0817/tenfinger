@@ -1,1 +1,14 @@
-<p>x-skill-level works!</p>
+<div class="level-box">
+    <h3>Your Skill Level</h3>
+    <div class="levelup_b" id="login-link">
+        <div *ngIf="isAuthenticated; then thenBlock else elseBlock"></div>
+        <ng-template #thenBlock>
+            <p class="">Beginner:21 wpm</p>
+            <p class="">Based on Typing test</p>
+        </ng-template>
+        <ng-template #elseBlock>
+            <p class="">You must be registered and signed in to use this feature.</p>
+        </ng-template>
+        
+    </div>
+</div>

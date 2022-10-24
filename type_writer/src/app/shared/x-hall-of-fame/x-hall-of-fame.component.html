@@ -1,1 +1,8 @@
-<p>x-hall-of-fame works!</p>
+<div class="fame-box" *ngIf="wallOfFame">
+    <h3>Hall of Fame</h3>
+    <img alt src="../../../assets/css/images/trophy1.jpg" />
+    <p class="topuser">{{wallOfFame.topuser}}</p>
+    <p class="topspeed">{{wallOfFame.topspeed}} wpm</p>
+    <p class="topprec">{{wallOfFame.topprec}} %</p>
+    <p class="fame-link"><a href="/student/hall-of-fame">Hall of Fame</a></p>
+</div>

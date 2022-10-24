@@ -1,1 +1,14 @@
-<p>x-register-box works!</p>
+<div class="reg-box" id="login_link">
+    <div *ngIf="isAuthenticated; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+        <h3 class="head-box">Tip of the Day</h3>
+        <p class="body-box">Typing speed is calculated in two ways: Gross Speed is your overall words typed per minute. A word is 5 typed characters. Net Speed subtracts one word for each incorrectly typed character.</p>
+    </ng-template>
+    <ng-template #elseBlock>
+        <a href="/student/login" routerLinkActive="active">
+            <h3 class="head-box">Register Now! <br>It's free!</h3>
+        </a>
+        <p class="body-box">Register with Bicheech to track your progress, access additional content and compete for your place in the Hall of Fame.</p>
+        <a href="/student/login" routerLinkActive="active"><p class="food-box">Register Now »</p></a>
+    </ng-template>
+</div>

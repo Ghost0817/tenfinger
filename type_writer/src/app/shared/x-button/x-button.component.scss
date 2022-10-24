@@ -1,0 +1,36 @@
+
+.x-button {
+    margin: 0;
+    display: inline-flex;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    align-items: center;
+    vertical-align: bottom;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgb(37, 198, 208);
+    padding: 0.4rem 0.625rem;
+    font-size: 0.813rem;
+    transition: background-color .15s,border-color .15s,box-shadow .15s;
+    border-radius: 4px;
+    background: rgb(37, 198, 208);
+
+    &.disabled, &[disabled], fieldset[disabled] .btn {
+        cursor: not-allowed;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        opacity: .65;
+    }
+}
+.x-button:enabled:hover {
+    background: rgb(37, 198, 208);
+    color: #fff;
+    border-color: rgb(37, 198, 208);
+}
+.x-button:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem rgb(37 198 208 / 50%);
+}

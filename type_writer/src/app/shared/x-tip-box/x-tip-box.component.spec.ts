@@ -11,7 +11,9 @@ describe('XTipBoxComponent', () => {
       declarations: [ XTipBoxComponent ]
     })
     .compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(XTipBoxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

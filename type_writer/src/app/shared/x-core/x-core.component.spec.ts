@@ -11,7 +11,9 @@ describe('XCoreComponent', () => {
       declarations: [ XCoreComponent ]
     })
     .compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(XCoreComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

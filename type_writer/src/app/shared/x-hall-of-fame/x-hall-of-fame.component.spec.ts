@@ -11,7 +11,9 @@ describe('XHallOfFameComponent', () => {
       declarations: [ XHallOfFameComponent ]
     })
     .compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(XHallOfFameComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

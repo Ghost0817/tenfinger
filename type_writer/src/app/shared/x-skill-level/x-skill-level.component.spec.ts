@@ -11,7 +11,9 @@ describe('XSkillLevelComponent', () => {
       declarations: [ XSkillLevelComponent ]
     })
     .compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(XSkillLevelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,0 +1,4 @@
+<div *ngIf="!disbaleMessage" class="alert alert-{{msgType}}">
+    <span class="message-detail">{{msgText}}</span>
+    <a class="close" (click)="handleClick($event)">x</a>
+</div>

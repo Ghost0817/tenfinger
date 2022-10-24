@@ -1,61 +1,68 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { XRatingComponent } from './x-rating/x-rating.component';
 import { XTableComponent } from './x-table/x-table.component';
-import { XGridComponent } from './x-grid/x-grid.component';
 import { XButtonComponent } from './x-button/x-button.component';
-import { XCoreComponent } from './x-core/x-core.component';
+import { XDialogComponent } from './x-dialog/x-dialog.component';
+import { XFormComponent, XRadioboxComponent, XSelectComponent } from './x-form/x-form.component';
+import { XMessagesComponent } from './x-messages/x-messages.component';
+import { CommonModule } from '@angular/common';
+import { XInputComponent } from './x-form/x-form.component';
+import { XGridComponent } from './x-grid/x-grid.component';
 import { XRegisterBoxComponent } from './x-register-box/x-register-box.component';
 import { XSkillLevelComponent } from './x-skill-level/x-skill-level.component';
-import { XTipBoxComponent } from './x-tip-box/x-tip-box.component';
-import { XFormComponent } from './x-form/x-form.component';
-import { XDialogComponent } from './x-dialog/x-dialog.component';
+import { XFeedBackBoxComponent } from './x-feed-back-box/x-feed-back-box.component';
 import { XHallOfFameComponent } from './x-hall-of-fame/x-hall-of-fame.component';
-import { XMessageComponent } from './x-message/x-message.component';
-
-
+import { XCoreComponent, XFieldErrorsComponent } from './x-core/x-core.component';
+import { XTipBoxComponent } from './x-tip-box/x-tip-box.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
+    XRatingComponent,
     XTableComponent,
     XButtonComponent,
     XDialogComponent,
     XFormComponent,
-    //XInputComponent,
-    XMessageComponent,
+    XInputComponent,
+    XMessagesComponent,
+    XFieldErrorsComponent,
+    XGridComponent,
     XRegisterBoxComponent,
     XSkillLevelComponent,
-    //XFeedBackBoxComponent,
-    XGridComponent,
-    XCoreComponent,
+    XFeedBackBoxComponent,
     XHallOfFameComponent,
-    //XSelectComponent,
+    XCoreComponent,
     //XCheckboxComponent,
-    //XRadioboxComponent,
+    XSelectComponent,
+    XRadioboxComponent,
     XTipBoxComponent
   ],
   imports: [
     CommonModule,
+    FontAwesomeModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+  ],
   exports: [
-    XTableComponent,
-    XButtonComponent,
-    XDialogComponent,
-    XFormComponent,
-    //XInputComponent,
-    XMessageComponent,
-    XRegisterBoxComponent,
-    XSkillLevelComponent,
-    //XFeedBackBoxComponent,
-    XGridComponent,
-    XCoreComponent,
-    XHallOfFameComponent,
-    //XSelectComponent,
-    //XCheckboxComponent,
-    //XRadioboxComponent,
-    XTipBoxComponent
+      XRatingComponent,
+      XTableComponent,
+      XButtonComponent,
+      XDialogComponent,
+      XFormComponent,
+      XInputComponent,
+      XMessagesComponent,
+      XRegisterBoxComponent,
+      XSkillLevelComponent,
+      XFeedBackBoxComponent,
+      XGridComponent,
+      XCoreComponent,
+      XHallOfFameComponent,
+      XSelectComponent,
+      //XCheckboxComponent,
+      XRadioboxComponent,
+      XTipBoxComponent
   ]
 })
 export class SharedModule { }

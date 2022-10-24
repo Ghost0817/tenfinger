@@ -11,7 +11,9 @@ describe('XRegisterBoxComponent', () => {
       declarations: [ XRegisterBoxComponent ]
     })
     .compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(XRegisterBoxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -11,7 +11,9 @@ describe('XGridComponent', () => {
       declarations: [ XGridComponent ]
     })
     .compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(XGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
