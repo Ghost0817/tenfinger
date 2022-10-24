@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-upgrade',
@@ -37,9 +38,22 @@ export class UpgradeComponent implements OnInit {
 
   showPayInfo: boolean = false;
 
+  upgradeForm!: FormGroup;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.upgradeForm = new FormGroup({
+      id: new FormControl(''),
+      conditionTerm: new FormControl(''),
+      price: new FormControl(''),
+      featured: new FormControl(''),
+      conditionOne: new FormControl(''),
+      conditionTwo: new FormControl(''),
+      conditionThree: new FormControl(''),
+      token: new FormControl(''),
+      usernameid: new FormControl('')
+    });
   }
 
   getConditionTerm(obj: any): string{
@@ -56,6 +70,10 @@ export class UpgradeComponent implements OnInit {
   setCurrUpgrade(obj: any): void {
     this.currUpgrade = obj;
     this.showPayInfo = true;
+  }
+
+  onSubmit(event:any): void {
+    
   }
 
 }

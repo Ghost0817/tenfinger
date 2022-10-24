@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { XRatingComponent } from './x-rating/x-rating.component';
 import { XTableComponent } from './x-table/x-table.component';
 import { XButtonComponent } from './x-button/x-button.component';
@@ -40,7 +39,6 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FontAwesomeModule,
     FormsModule
   ],
   providers: [

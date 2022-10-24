@@ -1,4 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
 
 import { ForgotComponent } from './forgot.component';
 
@@ -8,6 +10,8 @@ describe('ForgotComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [HttpClientModule],
+      providers: [ { provide: FormBuilder } ],
       declarations: [ ForgotComponent ]
     })
     .compileComponents();

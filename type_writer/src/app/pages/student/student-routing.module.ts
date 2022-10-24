@@ -20,7 +20,7 @@ const routes: Routes = [{
   }, {
     path: 'tests',
     loadChildren: () => import('./tests/tests.module').then(m => m.TestsModule),
-    title: 'Free Typing Test - Bicheech.com'
+    title: 'Tests - Bicheech.com'
     //canActivate: [AuthGuard]
   }, {
     path: 'typing-test',
@@ -29,18 +29,22 @@ const routes: Routes = [{
   }, {
     path: 'login',
     loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
+    title: 'Login - Bicheech.com'
   }, {
     path: 'forgot',
     loadChildren: () => import('./forgot/forgot.module').then(m => m.ForgotModule),
+    title: 'Forgot Password - Bicheech.com'
   },  {
     path: 'password-reset/:key',
     loadChildren: () => import('./reset-password/reset-password.module').then(m => m.ResetPasswordModule),
   }, {
     path: 'signup',
     loadChildren: () => import('./register/register.module').then(m => m.RegisterModule),
+    title: 'Signup - Bicheech.com'
   }, {
     path: 'hall-of-fame',
     loadChildren: () => import('./hall-of-fame/hall-of-fame.module').then(m => m.HallOfFameModule),
+    title: 'Hall Of Fame - Bicheech.com'
   }, {
     path: 'contact-us',
     loadChildren: () => import('./contact-us/contact-us.module').then(m => m.ContactUsModule),
@@ -48,18 +52,23 @@ const routes: Routes = [{
   }, {
     path: 'games',
     loadChildren: () => import('./games-list/games-list.module').then(m => m.GamesListModule),
+    title: 'Games - Bicheech.com'
   }, {
     path: 'skins',
     loadChildren: () => import('./skins/skins.module').then(m => m.SkinsModule),
+    title: 'Skins - Bicheech.com'
   }, {
     path: 'upgrade',
     loadChildren: () => import('./upgrade/upgrade.module').then(m => m.UpgradeModule),
+    title: 'Upgrade - Bicheech.com'
   }, {
     path: 'statistics',
     loadChildren: () => import('./statistics/statistics.module').then(m => m.StatisticsModule),
+    title: 'Statistics - Bicheech.com'
   }, {
     path: 'preferences',
     loadChildren: () => import('./preferences/preferences.module').then(m => m.PreferencesModule),
+    title: 'Preferences - Bicheech.com'
   }, {
     path: 'race',
     loadChildren: () => import('./type-race/type-race.module').then(m => m.TypeRaceModule),

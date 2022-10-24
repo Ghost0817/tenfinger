@@ -1,4 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-forgot',
@@ -35,9 +39,6 @@ export class ForgotComponent implements OnInit {
     });
   }
 
-  get emailField () {
-    return this.regForm.get('email');
-  }
   get recaptchaField () {
     return this.regForm.get('recaptcha');
   }
@@ -52,8 +53,6 @@ export class ForgotComponent implements OnInit {
       return;
     }
 
-    console.debug(`Token [${this.token}] generated`);
-    // TODO: Use EventEmitter with form value
     const body = {
       email: this.regForm.value['email'],
     }
@@ -64,5 +63,6 @@ export class ForgotComponent implements OnInit {
       }
     );
   }
+
 
 }

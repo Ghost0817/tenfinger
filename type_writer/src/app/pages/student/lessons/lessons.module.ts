@@ -13,8 +13,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     SharedModule,
-    LessonsRoutingModule,
-    
+    LessonsRoutingModule
   ]
 })
 export class LessonsModule { }

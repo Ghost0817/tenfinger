@@ -30,7 +30,7 @@
                         </ul>
                     </div>
                     <div class="dm3-pricing-actions">
-                        <a class="dm3-btn" href="">Upgrade Now</a>
+                        <a class="dm3-btn" (click)="setCurrUpgrade(upgrade)">Upgrade Now</a>
                     </div>
                 </div>
 
@@ -52,6 +52,9 @@
             <p>Have a question about your account, or about getting the most out of Bicheech? Premium members are guaranteed a fast response from our team of experts.</p>
             <br/><br/><br/>
         </div>
+
+
+
         <div class="upgrade_body" *ngIf="showPayInfo">
             <h3 class="titlewithline">
                 <span>Payment Information</span>
@@ -64,7 +67,10 @@
             <p><span class="left">* This is a one time fee. You will not be charged again unless initiated by you.</span></p>
     
             <br/>
-    
+
+            <form class="form-container" [formGroup]="upgradeForm" (ngSubmit)="onSubmit($event)">
+            <x-button text="Upgrade Now" type="submit" [parentForm]="upgradeForm"></x-button>
+            </form>
             <!-- {{ form_start(form) }}
     
             {{ form_widget(form._token) }}

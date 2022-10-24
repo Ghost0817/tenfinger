@@ -1,1 +1,41 @@
-<p>register works!</p>
+<div class="register-box">
+
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+    
+    
+            <h4>Don't have an account?</h4>
+            
+            <p class="lead">No problem! <strong>Bicheech.com is free!</strong></p>
+            
+            <div *ngIf="grade" class="msg-info">You are requesting to join %name%'s class {{ grade.name }}</div>
+            
+            <form class="form-container" [formGroup]="regForm" (ngSubmit)="onSubmit($event)">
+            
+                <x-input formControlName="username" fieldType="text" fieldName="username" [parentForm]="regForm" formLabel="Username"></x-input>
+                
+                <x-input formControlName="email" fieldType="email" fieldName="email" [parentForm]="regForm" formLabel="Email"></x-input>
+                
+                <x-input formControlName="password" fieldType="password" fieldName="password" [parentForm]="regForm" formLabel="Password"></x-input>
+                
+                <x-input formControlName="re_password" fieldType="password" fieldName="re_password" [parentForm]="regForm" formLabel="Repassword"></x-input>
+                
+                <div *ngIf="isPosted" class="form-row">
+                    <div class="input-group">
+                        <x-messages [msgType]="'success'" [msgText]="'Save Successful'"></x-messages>
+                    </div>
+                </div>
+            
+                <div class="form-row">
+                    <div class="input-group">
+                        <x-button text="Create Account" type="submit" [parentForm]="regForm"></x-button>
+                    </div>
+                </div>
+                <!-- <a href="#" class="policy" target="_blank">Privacy Policy</a> -->
+            </form>
+    
+        </div>
+    </div>
+    </div>
+    

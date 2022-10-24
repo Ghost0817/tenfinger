@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/core/services/api.service';
+import { checkUniquenessValidator } from 'src/app/core/validators/checkUniquenessValidator';
+import { createPasswordStrengthValidator } from 'src/app/core/validators/createPasswordStrengthValidator';
 
 @Component({
   selector: 'app-preferences',
@@ -189,6 +191,5 @@ export class PreferencesComponent implements OnInit {
     }
     return null;
   }
-
 
 }

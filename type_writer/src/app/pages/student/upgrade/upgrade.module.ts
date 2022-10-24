@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { UpgradeRoutingModule } from './upgrade-routing.module';
 import { UpgradeComponent } from './upgrade.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -11,6 +13,9 @@ import { UpgradeComponent } from './upgrade.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule,
     UpgradeRoutingModule
   ]
 })

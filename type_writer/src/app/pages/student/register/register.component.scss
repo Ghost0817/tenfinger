@@ -1,0 +1,21 @@
+.register-box{
+    width: 400px;
+      margin: 5rem auto;
+      display: block;
+    .panel{
+      margin-bottom: 20px;
+      background-color: #fff;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      -webkit-box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+      box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+      margin-right: 5px;
+      margin-left: 5px;
+      &.panel-default {
+        border-color: #ddd;
+      }
+      .panel-body {
+        padding: 15px;
+      }
+    }
+  }
