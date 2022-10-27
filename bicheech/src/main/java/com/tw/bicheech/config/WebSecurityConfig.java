@@ -1,21 +1,20 @@
-package com.sai.bicheech.config;
+package com.tw.bicheech.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.header.writers.StaticHeadersWriter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -26,7 +25,8 @@ import java.util.Arrays;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @Order(1)
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig {
+
 
 	@Autowired
 	private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
@@ -37,13 +37,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private JwtRequestFilter jwtRequestFilter;
 
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		// configure AuthenticationManager so that it knows from where to load
-		// user for matching credentials
-		// Use BCryptPasswordEncoder
-		auth.userDetailsService(jwtUserDetailsService).passwordEncoder(passwordEncoder());
-	}
+//	@Autowired
+//	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+//		// configure AuthenticationManager so that it knows from where to load
+//		// user for matching credentials
+//		// Use BCryptPasswordEncoder
+//		auth.userDetailsService(jwtUserDetailsService).passwordEncoder(passwordEncoder());
+//	}
 
 	@Bean
 	public PasswordEncoder passwordEncoder() {
@@ -51,52 +51,40 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	@Bean
-	@Override
-	public AuthenticationManager authenticationManagerBean() throws Exception {
-		return super.authenticationManagerBean();
+	public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+		return authenticationConfiguration.getAuthenticationManager();
 	}
 
-	@Override
-	protected void configure(HttpSecurity httpSecurity) throws Exception {
+	@Bean
+	protected SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
+		// We don't need CSRF for this example
 		httpSecurity.cors().configurationSource(corsConfigurationSource()).and().csrf().disable()
+				// dont authenticate this particular request
 				.authorizeRequests()
-				.antMatchers(
-						"/authenticate",
-						"/register-student",
-						"/register-teacher",
-						"/forgot",
-						"/reset-password",
-						"/lesson",
-						"/studentTests",
-						"/exercise",
-						"/test",
-						"/wall-of-fame",
-						"/ws/**"
-				).permitAll()
-				.anyRequest().authenticated().and()
-				.exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
+				.antMatchers("/authenticate","/ws/**","/app/*").permitAll()
+				//.antMatchers("/ws/*").permitAll()
+				//.antMatchers("/authenticate").permitAll()
+				// all other requests need to be authenticated
+				.anyRequest().authenticated().and().
+				// make sure we use stateless session; session won't be used to
+				// store user's state.
+						exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-		//httpSecurity.headers().addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Origin","*"));
+
+		// Add a filter to validate the tokens with every request
 		httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 
+		return httpSecurity.build();
 	}
 
+	@Bean
 	CorsConfigurationSource corsConfigurationSource() {
-//		CorsConfiguration configuration = new CorsConfiguration();
-//		configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
-//		//configuration.setAllowedMethods(Arrays.asList("GET","POST"));
-//		configuration.setAllowCredentials(true);
-//		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-//		source.registerCorsConfiguration("/**", configuration);
-
 		CorsConfiguration configuration = new CorsConfiguration();
-		configuration.setAllowedOrigins(Arrays.asList("*"));
-		//configuration.setAllowedMethods(Arrays.asList("GET","POST"));
+		String[] stringArray = new String[] { "http://localhost:4200", "http://localhost:9876/", "http://192.168.8.32:4200", "http://192.168.8.32:8080", "http://192.168.8.32:80" };
+		configuration.setAllowedOrigins(Arrays.asList(stringArray));
+		configuration.setAllowedMethods(Arrays.asList("GET"));
+		configuration.setAllowedHeaders(Arrays.asList("*"));
 		configuration.setAllowCredentials(true);
-		//the below three lines will add the relevant CORS response headers
-		configuration.addAllowedOrigin("*");
-		configuration.addAllowedHeader("*");
-		configuration.addAllowedMethod("*");
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/**", configuration);
 		return source;

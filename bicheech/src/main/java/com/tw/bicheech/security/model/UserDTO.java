@@ -1,4 +1,4 @@
-package com.sai.bicheech.model;
+package com.tw.bicheech.security.model;
 
 import javax.persistence.Column;
 import java.sql.Date;
