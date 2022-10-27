@@ -4,6 +4,7 @@ import com.tw.bicheech.config.JwtTokenUtil;
 import com.tw.bicheech.security.model.JwtRequest;
 import com.tw.bicheech.security.model.JwtResponse;
 import com.tw.bicheech.security.model.UserDTO;
+import com.tw.bicheech.security.service.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -36,6 +37,9 @@ public class JwtAuthenticationController {
 	@Autowired
 	private JwtUserDetailsService userDetailsService;
 
+	@Autowired
+	private ProfileService profileService;
+
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
 
@@ -53,5 +57,90 @@ public class JwtAuthenticationController {
 		final String jwt = jwtTokenUtil.generateToken(userDetails);
 
 		return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getUsername()));
+	}
+
+	@RequestMapping(value = "/register-teacher", method = RequestMethod.POST)
+	public ResponseEntity<?> saveTeacher(@Valid @RequestBody final UserDTO user, final BindingResult result, final Model model) throws Exception {
+		com.tw.bicheech.model.ResultData objResultData = new com.tw.bicheech.model.ResultData();
+		List<com.tw.bicheech.model.Errors> listErrors = new ArrayList<>();
+		com.tw.bicheech.model.Errors objErros;
+
+		if (user.getUsername().isEmpty()) {
+			objErros = new com.tw.bicheech.model.Errors();
+			objErros.setField("username");
+			objErros.setMessage("Username is required");
+			listErrors.add(objErros);
+		}
+		if (!user.getUsername().isEmpty() && (user.getUsername().length() <= 3 || user.getUsername().length()>40)) {
+			objErros = new com.tw.bicheech.model.Errors();
+			objErros.setField("username");
+			objErros.setMessage("Username must be greater than 3 characters and less than 40 characters");
+			listErrors.add(objErros);
+		}
+		if (!user.getUsername().isEmpty() && profileService.isUsernameExists(user.getUsername())) {
+			objErros = new com.tw.bicheech.model.Errors();
+			objErros.setField("username");
+			objErros.setMessage("This username already exists. Please try a different username.");
+			listErrors.add(objErros);
+		}
+		if (!user.getEmail().isEmpty() && !profileService.studentByEmailExists(user.getEmail()).equals(null)) {
+			objErros = new com.tw.bicheech.model.Errors();
+			objErros.setField("email");
+			objErros.setMessage("An account with this email already exists. If you lost your password, you should use the \"I forgot my login\" feature to recover it.");
+			listErrors.add(objErros);
+		}
+		if (user.getEmail().isEmpty()) {
+			objErros = new com.tw.bicheech.model.Errors();
+			objErros.setField("email");
+			objErros.setMessage("Email is required");
+			listErrors.add(objErros);
+		}
+		String regexPattern = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
+				+ "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
+		if (!user.getEmail().isEmpty() && !user.getEmail().matches(regexPattern)) {
+			objErros = new com.tw.bicheech.model.Errors();
+			objErros.setField("email");
+			objErros.setMessage("Email address is invalid");
+			listErrors.add(objErros);
+		}
+		if (user.getPassword().isEmpty()) {
+			objErros = new com.tw.bicheech.model.Errors();
+			objErros.setField("password");
+			objErros.setMessage("Password is required");
+			listErrors.add(objErros);
+		}
+		if (user.getRe_password().isEmpty()) {
+			objErros = new com.tw.bicheech.model.Errors();
+			objErros.setField("re_password");
+			objErros.setMessage("Re_password is required");
+			listErrors.add(objErros);
+		}
+		if (!user.getPassword().isEmpty() && (user.getPassword().length() <= 8 && user.getPassword().length()>120)) {
+			objErros = new com.tw.bicheech.model.Errors();
+			objErros.setField("password");
+			objErros.setMessage("Password must be greater than 8 characters and less than 120 characters");
+			listErrors.add(objErros);
+		}
+		if (!user.getRe_password().isEmpty() && (user.getRe_password().length() <= 8 || user.getRe_password().length()>120)) {
+			objErros = new com.tw.bicheech.model.Errors();
+			objErros.setField("re_password");
+			objErros.setMessage("Re_password must be greater than 8 characters and less than 120 characters");
+			listErrors.add(objErros);
+		}
+		if (!user.getRe_password().isEmpty() && !user.getPassword().isEmpty() && !user.getRe_password().equals(user.getPassword())) {
+			objErros = new com.tw.bicheech.model.Errors();
+			objErros.setField("re_password");
+			objErros.setMessage("Both password fields must match");
+			listErrors.add(objErros);
+		}
+
+		objResultData.setErrors(listErrors);
+		objResultData.setValid(listErrors.isEmpty());
+
+		if(listErrors.isEmpty()) {
+			profileService.save(user);
+		}
+
+		return ResponseEntity.ok(objResultData);
 	}
 }

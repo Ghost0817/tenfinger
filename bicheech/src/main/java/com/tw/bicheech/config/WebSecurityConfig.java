@@ -82,7 +82,7 @@ public class WebSecurityConfig {
 		CorsConfiguration configuration = new CorsConfiguration();
 		String[] stringArray = new String[] { "http://localhost:4200", "http://localhost:9876/", "http://192.168.8.32:4200", "http://192.168.8.32:8080", "http://192.168.8.32:80" };
 		configuration.setAllowedOrigins(Arrays.asList(stringArray));
-		configuration.setAllowedMethods(Arrays.asList("GET"));
+		configuration.setAllowedMethods(Arrays.asList("GET","POST"));
 		configuration.setAllowedHeaders(Arrays.asList("*"));
 		configuration.setAllowCredentials(true);
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
