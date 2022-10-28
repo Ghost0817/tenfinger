@@ -1,4 +1,4 @@
-package com.sai.bicheech.model;
+package com.tw.bicheech.common.model;
 
 public class ResetPasswordDTO {
     private String email;

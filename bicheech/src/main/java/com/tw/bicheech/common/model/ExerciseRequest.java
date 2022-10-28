@@ -1,4 +1,4 @@
-package com.tw.bicheech.model;
+package com.tw.bicheech.common.model;
 
 public class ExerciseRequest {
     private String lang;

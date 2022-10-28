@@ -1,7 +1,7 @@
-package com.tw.bicheech.dao;
+package com.tw.bicheech.common.repository;
 
-import com.tw.bicheech.entity.DAOStatustyping;
-import com.tw.bicheech.model.HallOfFameTop;
+import com.tw.bicheech.common.entity.DAOStatustyping;
+import com.tw.bicheech.common.model.HallOfFameTop;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

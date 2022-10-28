@@ -1,6 +1,7 @@
-<div *ngIf="!disbaleMessage" class="sb-container">
-    <div class="sb-overlay"></div>
-    <div class="sb-wrapper">
+<div class="{{hasBgLayout?'sb-container':''}}" *ngIf="isClose">
+
+    <div class="sb-overlay" (click)="onOverlayClicked($event)" *ngIf="hasBgLayout"></div>
+    <div class="sb-wrapper" (click)="onDialogClicked($event)">
         <div class="sb-body">
 
             <ng-content></ng-content>

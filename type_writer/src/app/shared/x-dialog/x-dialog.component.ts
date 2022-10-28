@@ -8,14 +8,25 @@ import { Component, Input, OnInit } from '@angular/core';
 export class XDialogComponent {
   
   @Input()
-  msgText: String | undefined;
-  disbaleMessage: Boolean = false;
-
+  isClose:boolean = false;
+  @Input()
+  hasBgLayout:boolean = true;
+  
   constructor() { }
 
-  handleClick(event: Event) { 
-    if (!this.disbaleMessage)
-      this.disbaleMessage = true
-  } 
+  ngOnInit(): void {
+  }
+
+  ngOnDestroy(): void {
+    
+  }
+
+  onOverlayClicked(evt: MouseEvent): void {
+
+  }
+
+  onDialogClicked(evt: MouseEvent): void {
+    evt.stopPropagation();
+  }
 
 }

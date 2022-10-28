@@ -1,7 +1,8 @@
 package com.tw.bicheech.security.service;
 
-import com.tw.bicheech.dao.PasswordResetRepository;
-import com.tw.bicheech.entity.DAOPasswordReset;
+import com.tw.bicheech.common.model.ResetPasswordDTO;
+import com.tw.bicheech.common.repository.PasswordResetRepository;
+import com.tw.bicheech.common.entity.DAOPasswordReset;
 import com.tw.bicheech.security.entity.DAOUser;
 import com.tw.bicheech.security.model.UserDTO;
 import com.tw.bicheech.security.repository.UserDao;
@@ -53,7 +54,7 @@ public class ProfileService {
         return userDao.save(newUser);
     }
 
-    public void createResetLink(com.sai.bicheech.model.ResetPasswordDTO resetPassword, long userId, String userMail) {
+    public void createResetLink(ResetPasswordDTO resetPassword, long userId, String userMail) {
         DAOPasswordReset objPasswordReset = new DAOPasswordReset();
         System.out.println(objPasswordReset.getActivation_key(userId, userMail));
         objPasswordReset.setActivation_key(objPasswordReset.getActivation_key(userId, userMail));

@@ -1,14 +1,14 @@
 package com.tw.bicheech.lesson.service;
 
 import com.tw.bicheech.lesson.repository.CategoryDao;
-import com.tw.bicheech.dao.ExerciseDao;
-import com.tw.bicheech.dao.StatustypingDao;
+import com.tw.bicheech.common.repository.ExerciseDao;
+import com.tw.bicheech.common.repository.StatustypingDao;
 import com.tw.bicheech.lesson.enity.DAOCategory;
-import com.tw.bicheech.entity.DAOExercise;
+import com.tw.bicheech.common.entity.DAOExercise;
 import com.tw.bicheech.lesson.model.CategoryDTO;
-import com.tw.bicheech.model.ExerciseDTO;
-import com.tw.bicheech.model.ExerciseRequest;
-import com.tw.bicheech.model.HallOfFameTop;
+import com.tw.bicheech.common.model.ExerciseDTO;
+import com.tw.bicheech.common.model.ExerciseRequest;
+import com.tw.bicheech.common.model.HallOfFameTop;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

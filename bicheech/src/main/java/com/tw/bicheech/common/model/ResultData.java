@@ -1,4 +1,6 @@
-package com.tw.bicheech.model;
+package com.tw.bicheech.common.model;
+
+import com.tw.bicheech.common.model.Errors;
 
 import java.util.List;
 

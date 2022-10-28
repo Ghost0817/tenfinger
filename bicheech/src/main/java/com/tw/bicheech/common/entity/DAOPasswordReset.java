@@ -1,4 +1,4 @@
-package com.tw.bicheech.entity;
+package com.tw.bicheech.common.entity;
 
 import javax.persistence.*;
 import java.sql.Date;

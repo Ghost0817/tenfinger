@@ -1,4 +1,4 @@
-package com.tw.bicheech.model;
+package com.tw.bicheech.common.model;
 
 public class HallOfFameTop {
     private String username;

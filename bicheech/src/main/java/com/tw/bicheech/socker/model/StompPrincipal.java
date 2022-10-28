@@ -1,4 +1,4 @@
-package com.tw.bicheech.security.model;
+package com.tw.bicheech.socker.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
