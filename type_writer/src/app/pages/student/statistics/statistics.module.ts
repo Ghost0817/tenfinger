@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { StatisticsRoutingModule } from './statistics-routing.module';
 import { StatisticsComponent } from './statistics.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { StatisticsComponent } from './statistics.component';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     StatisticsRoutingModule
   ]
 })

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
+import { distinctUntilChanged } from 'rxjs';
+import { ApiService } from 'src/app/core/services/api.service';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-games-list',
@@ -7,7 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GamesListComponent implements OnInit {
 
-  constructor() { }
+  isAuthenticated:boolean = false;
+  wallOfFame: any;
+
+  constructor(private meta: Meta,private api: ApiService,private userService: UserService) {
+
+    this.userService.isAuthenticated.pipe(distinctUntilChanged()).subscribe(isAuth =>{
+      this.isAuthenticated = isAuth
+    })
+    
+  }
 
   ngOnInit(): void {
   }

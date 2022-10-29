@@ -27,7 +27,7 @@ export class WsapiService {
     const _this = this;
     _this.stompClient.connect({"Authorization": `Bearer ${_this.getAccessUserToken()}`}, function (frame: any) {
       _this.guestToken = frame.headers['user-name'];
-      //_this.objComponent.setUserToken(_this.guestToken);
+      _this.objComponent.setUserToken(_this.guestToken);
 
       _this.stompClient.subscribe(_this.topicPrivate, function (sdkEvent: any) {
           _this.onPrivateMessageReceived(sdkEvent);
@@ -88,10 +88,10 @@ export class WsapiService {
   }
 
   _sendPrivate(path: string,message: string) {
-    console.log("calling logout api via web socket");
     this.stompClient.send(
       path, //"/app/private-message", 
       {"Authorization":`Bearer ${localStorage.getItem('accessToken')}`}, 
+      //{Authorization: this.objComponent.yourToken},
       JSON.stringify(message)
     );
   }

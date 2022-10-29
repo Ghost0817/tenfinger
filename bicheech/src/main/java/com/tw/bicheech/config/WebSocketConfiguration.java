@@ -73,7 +73,7 @@ public class WebSocketConfiguration implements WebSocketMessageBrokerConfigurer 
                                 StompCommand.SEND.equals(accessor.getCommand()))) {
 
                     //currnetUser = new StompPrincipal("Guest666",accessor.getFirstNativeHeader("token"));
-                    String token = accessor.getFirstNativeHeader("token");
+                    String token = accessor.getFirstNativeHeader("Authorization");
 
                     String username = null;
                     String jwtToken = null;

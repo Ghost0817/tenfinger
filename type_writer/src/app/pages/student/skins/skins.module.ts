@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SkinsRoutingModule } from './skins-routing.module';
 import { SkinsComponent } from './skins.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { SkinsComponent } from './skins.component';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     SkinsRoutingModule
   ]
 })

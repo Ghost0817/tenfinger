@@ -86,7 +86,7 @@ export class RaceYourFriendsComponent implements OnInit {
       });
       
     //This is a very elegant method - for a single component.
-    //window.onbeforeunload = () => this.ngOnDestroy();
+    window.onbeforeunload = () => this.ngOnDestroy();
 
     this.lessons = contents;
     
@@ -106,6 +106,7 @@ export class RaceYourFriendsComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
+    this.webSocketAPI._sendPrivate("/app/private-close/"+this.roomId , "Guest has leaved the racetrack.");
     this.webSocketAPI._disconnect();
     //throw new Error('Method not implemented.');
   }
