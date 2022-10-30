@@ -1,0 +1,117 @@
+body.coffee-break{
+    background-color: #DECFAD;
+}
+body.coffee-break #bicheech{
+    fill:#fff;
+    stroke:#fff;
+}
+body.coffee-break #dotcom{
+    fill:#d56b1f;
+    stroke:#d56b1f;
+}
+body.coffee-break .header .header-links{
+    background-color: #c7a17a;
+}
+body.coffee-break .header .header-menu{
+    background-color: #342014;
+}
+body.coffee-break .header .header-menu .menu_layout .menu-box .sf-menu ul li{
+    border-color:#342014;
+}
+body.coffee-break .header .header-menu .menu_layout .menu-box .mainRetrievedMenu i{
+    border-color:#d56b1f;
+}
+body.coffee-break a{
+    color:#d56b1f;
+}
+body.coffee-break .header .header-menu .menu_layout .menu-box .sf-menu ul li a{
+    color:#fff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+body.coffee-break .header .header-menu .menu_layout .menu-box .sf-menu ul li.current-menu-item {
+    border-color:#d56b1f;
+}
+body.coffee-break .header .header-menu .menu_layout .menu-box .sf-menu ul li.current-menu-item > a{
+    color:#d56b1f;
+}
+body.coffee-break .typing-box .typing-status{
+    background-color:#DECFAD;
+    border-color:#84E1F4;
+}
+body.coffee-break .typing-box .typing-text{
+    background-color: rgb(255,255,255, .75);
+}
+body.coffee-break .form-group label, 
+body.coffee-break, 
+body.coffee-break p, 
+body.coffee-break label, 
+body.coffee-break span,
+body.coffee-break div.game p, 
+body.coffee-break div.game a:link, 
+body.coffee-break div.game a:visited, 
+body.coffee-break div.game a:hover, 
+body.coffee-break div.game a:active, 
+body.coffee-break div.bread-crumb, 
+body.coffee-break div.bread-crumb a:link, 
+body.coffee-break div.bread-crumb a:visited, 
+body.coffee-break div.bread-crumb a:hover, 
+body.coffee-break div.bread-crumb a:active{
+    color:#fff;
+}
+body.coffee-break .sf_content .my_content .content .container .widget_accordion ul li article header h2 .start-link, 
+body.coffee-break .sf_content .my_content .content .container .widget_accordion ul li article header .lang-course .start-link, 
+body.coffee-break .sf_content .my_content .content .container .widget_accordion ul li article header h2, 
+body.coffee-break .sf_content .my_content .content .container .widget_accordion ul li article header .lang-course{
+    color:#d56b1f;
+}
+body.coffee-break .typingtext div.lesson-text span.l-active {
+    background-color: #d56b1f;
+}
+body.coffee-break .bread-crumb #exercise-title{
+    color:#E2F900;
+}
+body.coffee-break .typingtext div.lesson-text span {
+    color:#333;
+}
+body.coffee-break .sf_content .my_content .content .login_warring,
+body.coffee-break .sf_content .my_content .content-mid .login_warring {
+    background-color: #d56b1f;
+    border-color:#d56b1f;
+}
+body.coffee-break .header .header-links .extra_layout .extra_box a.extra_item:hover{color:#d56b1f;}
+body.coffee-break .reg-box{background-color: #d56b1f;}
+body.coffee-break .level-box h3{color:#d56b1f;}
+body.coffee-break .fame-box h3{color:#d56b1f;}
+body.coffee-break .sf_content .my_content .content .container .widget_accordion ul li article header h2, 
+body.coffee-break .sf_content .my_content .content .container .widget_accordion ul li article header .lang-course{color:#d56b1f;}
+body.coffee-break .sf_content .my_content .content .container .widget_accordion ul li article .item-container ul li.active a{color:#d56b1f;}
+body.coffee-break .sf_content .my_content .content .container .widget_accordion ul li article .item-container ul li a,
+body.coffee-break .sf_content .my_content .content .container .widget_accordion ul li article .item-container ul li a label,
+body.coffee-break .sf_content .my_content .content .container .widget_accordion ul li article .item-container ul li a .start-link{color:#d56b1f;}
+body.coffee-break .sf_content .my_content .content .container .widget_accordion ul li article .item-container ul li{border-color:#d56b1f;}
+body.coffee-break #lessonoff{stroke:#d56b1f;}
+body.coffee-break #lessoncmpl{stroke:#d56b1f;}
+body.coffee-break #lessonon{stroke:#d56b1f;fill:#d56b1f;}
+body.coffee-break #lessoncmpl1{stroke:#d56b1f;fill:#d56b1f;}
+body.coffee-break .lesson-box-text h2 div,
+body.coffee-break div.lesson-box-begin{color:#d56b1f;}
+
+body.coffee-break .sf_content .my_content .content .container .widget_accordion ul li article header h2 .start-link, 
+body.coffee-break .sf_content .my_content .content .container .widget_accordion ul li article header .lang-course .start-link,
+body.coffee-break .sf_content .my_content .content .container .widget_accordion ul li article .item-container ul li a .start-btn{
+    color: #d56b1f;
+}
+body.coffee-break #upgrade_box{
+    stroke:#004FB0;
+    fill: url('#grad2');
+}
+body.coffee-break #removebtn{
+    stroke:#004FB0;
+    fill: url('#grad2');
+}
+body.coffee-break .panel{
+    background-color: #72D7EF;
+}
+body.coffee-break .header .header-links .extra_layout .extra_box .responsive {
+    background-color: #72D7EF;
+}

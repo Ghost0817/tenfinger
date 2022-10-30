@@ -1,0 +1,135 @@
+body.techy-dark{
+    background-color: #272b30;
+}
+body.techy-dark, body.techy-dark p, body.techy-dark label, body.techy-dark span{
+    color: #aaa;
+}
+body.techy-dark img, body.techy-dark svg {
+  filter: brightness(.8) contrast(1.2);
+}
+body.techy-dark img:hover,body.techy-dark svg:hover {
+    opacity: 1;
+}
+/* body.techy-dark #bicheech{
+    fill:#4F86F1;
+    stroke:#4F86F1;
+}
+body.techy-dark #dotcom{
+    fill:#FFF;
+    stroke:#FFF;
+} */
+body.techy-dark .header .header-links{
+    background-color: #3a3f44;
+}
+body.techy-dark .header .header-menu{
+    background-color: #272b30;
+    color: #aaa;
+}
+body.techy-dark .header .header-menu .menu_layout .menu-box .sf-menu ul li{
+    border-color:#272b30;
+}
+body.techy-dark .header .header-menu .menu_layout .menu-box .mainRetrievedMenu i{
+    border-color:#272b30;
+}
+body.techy-dark a{
+    color:#aaa;
+}
+body.techy-dark .header .header-menu .menu_layout .menu-box .sf-menu ul li a{
+    color:#fff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+body.techy-dark .header .header-menu .menu_layout .menu-box .sf-menu ul li.current-menu-item {
+    border-color:#20aeb7;
+    background-color: #20aeb7;
+}
+body.techy-dark .typing-box .typing-status{
+    background-color:#272b30;
+    border-color:#20aeb7;
+}
+body.techy-dark .typing-box .typing-status .time,
+body.techy-dark .typing-box .typing-status .pro,
+body.techy-dark .typing-box .typing-status .wpm,
+body.techy-dark .typing-box .typing-status .lwpm,
+body.techy-dark .typing-box .typing-status .lpro
+{
+    border-color:#20aeb7;
+}
+body.techy-dark .typing-box .typing-text{
+    background-color: rgb(255,255,255, .75);
+}
+body.techy-dark .form-group label, 
+body.techy-dark, 
+body.techy-dark p, 
+body.techy-dark label, 
+body.techy-dark span,
+body.techy-dark div.game p, 
+body.techy-dark div.game a:link, 
+body.techy-dark div.game a:visited, 
+body.techy-dark div.game a:hover, 
+body.techy-dark div.game a:active, 
+body.techy-dark div.bread-crumb, 
+body.techy-dark div.bread-crumb a:link, 
+body.techy-dark div.bread-crumb a:visited, 
+body.techy-dark div.bread-crumb a:hover, 
+body.techy-dark div.bread-crumb a:active{
+    color:#aaa;
+}
+body.techy-dark .sf_content .my_content .content .container .widget_accordion ul li article header h2 .start-link, 
+body.techy-dark .sf_content .my_content .content .container .widget_accordion ul li article header .lang-course .start-link, 
+body.techy-dark .sf_content .my_content .content .container .widget_accordion ul li article header h2, 
+body.techy-dark .sf_content .my_content .content .container .widget_accordion ul li article header .lang-course{
+    color:#20aeb7;
+}
+body.techy-dark .typingtext div.lesson-text{
+    border-color: #20aeb7;
+}
+
+body.techy-dark .typingtext div.lesson-text span.l-active {
+    background-color: #20aeb7;
+}
+body.techy-dark .bread-crumb #exercise-title{
+    color:#E2F900;
+}
+body.techy-dark .typingtext div.lesson-text span {
+    color:#333;
+}
+body.techy-dark .sf_content .my_content .content .login_warring,
+body.techy-dark .sf_content .my_content .content-mid .login_warring {
+    background-color: #20aeb7;
+    border-color:#20aeb7;
+}
+body.techy-dark .header .header-links .extra_layout .extra_box a.extra_item:hover{color:#20aeb7;}
+body.techy-dark .reg-box{background-color: #F8920D;}
+body.techy-dark .level-box h3{color:#F8920D;}
+body.techy-dark .sf_content .my_content .content .container .widget_accordion ul li article header h2, 
+body.techy-dark .sf_content .my_content .content .container .widget_accordion ul li article header .lang-course{color:#20aeb7;}
+body.techy-dark .sf_content .my_content .content .container .widget_accordion ul li article .item-container ul li.active a{color:#20aeb7;}
+body.techy-dark .sf_content .my_content .content .container .widget_accordion ul li article .item-container ul li a,
+body.techy-dark .sf_content .my_content .content .container .widget_accordion ul li article .item-container ul li a label,
+body.techy-dark .sf_content .my_content .content .container .widget_accordion ul li article .item-container ul li a .start-link{color:#20aeb7;}
+body.techy-dark .sf_content .my_content .content .container .widget_accordion ul li article .item-container ul li{border-color:#20aeb7;}
+body.techy-dark #lessonoff{stroke:#20aeb7;}
+body.techy-dark #lessoncmpl{stroke:#20aeb7;}
+body.techy-dark #lessoncmpl1{stroke:#20aeb7;fill:#20aeb7;}
+body.techy-dark .lesson-box-text h2 div,
+body.techy-dark div.lesson-box-begin{color:#20aeb7;}
+
+body.techy-dark .sf_content .my_content .content .container .widget_accordion ul li article header h2 .start-link, 
+body.techy-dark .sf_content .my_content .content .container .widget_accordion ul li article header .lang-course .start-link,
+body.techy-dark .sf_content .my_content .content .container .widget_accordion ul li article .item-container ul li a .start-btn{
+    color: #20aeb7;
+}
+/* body.techy-dark #upgrade_box{
+    stroke:#004FB0;
+    fill: url('#grad2');
+}
+body.techy-dark #removebtn{
+    stroke:#004FB0;
+    fill: url('#grad2');
+} */
+body.techy-dark .panel{
+    background-color: #72D7EF;
+}
+body.techy-dark .header .header-links .extra_layout .extra_box .responsive {
+    background-color: #72D7EF;
+}
