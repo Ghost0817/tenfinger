@@ -1,6 +1,8 @@
 package com.tw.bicheech.config;
 
 import com.tw.bicheech.security.service.JwtUserDetailsService;
+import com.tw.bicheech.socker.HttpHandshakeInterceptor;
+import com.tw.bicheech.socker.UserHandshakerHandler;
 import com.tw.bicheech.socker.model.StompPrincipal;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,78 +58,78 @@ public class WebSocketConfiguration implements WebSocketMessageBrokerConfigurer 
                 .setHttpMessageCacheSize(1000)
                 .setDisconnectDelay(30 * 1000);
     }
-
-    @Override
-    public void configureClientInboundChannel(ChannelRegistration registration) {
-        //registration.interceptors(new JwtChannelInterceptor())
-        registration.interceptors(new ChannelInterceptor() {
-
-            @Autowired
-            private JwtUserDetailsService jwtUserDetailsService;
-
-            @Override
-            public Message<?> preSend(Message<?> message, MessageChannel channel) {
-                StompHeaderAccessor accessor = MessageHeaderAccessor.getAccessor(message, StompHeaderAccessor.class);
-                if (accessor != null &&
-                        (StompCommand.CONNECT.equals(accessor.getCommand()) ||
-                                StompCommand.SEND.equals(accessor.getCommand()))) {
-
-                    //currnetUser = new StompPrincipal("Guest666",accessor.getFirstNativeHeader("token"));
-                    String token = accessor.getFirstNativeHeader("Authorization");
-
-                    String username = null;
-                    String jwtToken = null;
-                    String jwtErrorMessage = "";
-                    if (token != null && token.startsWith("Bearer ")) {
-                        jwtToken = token.substring(7);
-                        try {
-                            username = jwtTokenUtil.getUsernameFromToken(jwtToken);
-                        } catch (IllegalArgumentException e) {
-                            jwtErrorMessage = "Unable to get JWT Token";
-                            //response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
-                        } catch (ExpiredJwtException e) {
-                            jwtErrorMessage = "JWT Token has expired";
-                            //response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
-                        }
-                    } else {
-                        jwtErrorMessage = "JWT Token does not begin with Bearer String";
-                        //logger.warn("JWT Token does not begin with Bearer String");
-                    }
-                    System.out.println(jwtErrorMessage);
-
-                    //Once we get the token validate it.
-                    if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-                        currnetUser = new StompPrincipal(username,jwtToken);
-                        //currnetUser = (StompPrincipal) this.jwtUserDetailsService.loadUserByUsername(username);
-                    } else {
-                        UserDetails userDetails = new User("Guest", UUID.randomUUID().toString(), new ArrayList<>());
-
-
-                        System.out.println("Creating \"Guest\" user because there is "+jwtErrorMessage+".");
-                        //String randomId = "Bearer "+ UUID.randomUUID().toString();
-                        String randomId = "Bearer "+ jwtTokenUtil.generateToken(userDetails);
-                        currnetUser = new StompPrincipal("Guest",randomId);
-                    }
-
-                    //authenticationManager.authenticate(JwtAuthentication(token))
-                    //Principal yourAuth = token == null ? null : [...];
-                    System.out.println("accessor.getMessageType() >>>>"+accessor.getMessageType());
-//                    if (accessor.getMessageType() == SimpMessageType.CONNECT) {
-//                        userRegistry.onApplicationEvent(SessionConnectedEvent(this, message, currnetUser));
-//                    } else if (accessor.messageType == SimpMessageType.SUBSCRIBE) {
-//                        userRegistry.onApplicationEvent(SessionSubscribeEvent(this, message, yourAuth));
-//                    } else if (accessor.messageType == SimpMessageType.UNSUBSCRIBE) {
-//                        userRegistry.onApplicationEvent(SessionUnsubscribeEvent(this, message, yourAuth));
-//                    } else if (accessor.messageType == SimpMessageType.DISCONNECT) {
-//                        userRegistry.onApplicationEvent(SessionDisconnectEvent(this, message, accessor.sessionId, CloseStatus.NORMAL));
+//
+//    @Override
+//    public void configureClientInboundChannel(ChannelRegistration registration) {
+//        //registration.interceptors(new JwtChannelInterceptor())
+//        registration.interceptors(new ChannelInterceptor() {
+//
+//            @Autowired
+//            private JwtUserDetailsService jwtUserDetailsService;
+//
+//            @Override
+//            public Message<?> preSend(Message<?> message, MessageChannel channel) {
+//                StompHeaderAccessor accessor = MessageHeaderAccessor.getAccessor(message, StompHeaderAccessor.class);
+//                if (accessor != null &&
+//                        (StompCommand.CONNECT.equals(accessor.getCommand()) ||
+//                                StompCommand.SEND.equals(accessor.getCommand()))) {
+//
+//                    //currnetUser = new StompPrincipal("Guest666",accessor.getFirstNativeHeader("token"));
+//                    String token = accessor.getFirstNativeHeader("Authorization");
+//
+//                    String username = null;
+//                    String jwtToken = null;
+//                    String jwtErrorMessage = "";
+//                    if (token != null && token.startsWith("Bearer ")) {
+//                        jwtToken = token.substring(7);
+//                        try {
+//                            username = jwtTokenUtil.getUsernameFromToken(jwtToken);
+//                        } catch (IllegalArgumentException e) {
+//                            jwtErrorMessage = "Unable to get JWT Token";
+//                            //response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
+//                        } catch (ExpiredJwtException e) {
+//                            jwtErrorMessage = "JWT Token has expired";
+//                            //response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
+//                        }
+//                    } else {
+//                        jwtErrorMessage = "JWT Token does not begin with Bearer String";
+//                        //logger.warn("JWT Token does not begin with Bearer String");
 //                    }
-
-                    accessor.setUser(currnetUser);
-                    // not documented anywhere but necessary otherwise NPE in StompSubProtocolHandler!
-                    accessor.setLeaveMutable(true);
-                }
-                return message;
-            }
-        });
-    }
+//                    System.out.println(jwtErrorMessage);
+//
+//                    //Once we get the token validate it.
+//                    if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+//                        currnetUser = new StompPrincipal(username,jwtToken);
+//                        //currnetUser = (StompPrincipal) this.jwtUserDetailsService.loadUserByUsername(username);
+//                    } else {
+//                        UserDetails userDetails = new User("Guest", UUID.randomUUID().toString(), new ArrayList<>());
+//
+//
+//                        System.out.println("Creating \"Guest\" user because there is "+jwtErrorMessage+".");
+//                        //String randomId = "Bearer "+ UUID.randomUUID().toString();
+//                        String randomId = "Bearer "+ jwtTokenUtil.generateToken(userDetails);
+//                        currnetUser = new StompPrincipal("Guest",randomId);
+//                    }
+//
+//                    //authenticationManager.authenticate(JwtAuthentication(token))
+//                    //Principal yourAuth = token == null ? null : [...];
+//                    System.out.println("accessor.getMessageType() >>>>"+accessor.getMessageType());
+////                    if (accessor.getMessageType() == SimpMessageType.CONNECT) {
+////                        userRegistry.onApplicationEvent(SessionConnectedEvent(this, message, currnetUser));
+////                    } else if (accessor.messageType == SimpMessageType.SUBSCRIBE) {
+////                        userRegistry.onApplicationEvent(SessionSubscribeEvent(this, message, yourAuth));
+////                    } else if (accessor.messageType == SimpMessageType.UNSUBSCRIBE) {
+////                        userRegistry.onApplicationEvent(SessionUnsubscribeEvent(this, message, yourAuth));
+////                    } else if (accessor.messageType == SimpMessageType.DISCONNECT) {
+////                        userRegistry.onApplicationEvent(SessionDisconnectEvent(this, message, accessor.sessionId, CloseStatus.NORMAL));
+////                    }
+//
+//                    accessor.setUser(currnetUser);
+//                    // not documented anywhere but necessary otherwise NPE in StompSubProtocolHandler!
+//                    accessor.setLeaveMutable(true);
+//                }
+//                return message;
+//            }
+//        });
+//    }
 }
