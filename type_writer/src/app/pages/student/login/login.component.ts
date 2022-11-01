@@ -13,10 +13,13 @@ import { environment } from 'src/environments/environment';
 export class LoginComponent implements OnInit {
   hide = true;
   regForm!: FormGroup;
+  respError: any = {status: "200", message: "", showup: false};
 
   constructor(private http: HttpClient,
     private router: Router,
-    private userService: UserService) { }
+    private userService: UserService) {
+      
+    }
 
   ngOnInit(): void {
     this.regForm = new FormGroup({
@@ -39,6 +42,8 @@ export class LoginComponent implements OnInit {
   }
 
   getError() {
+    if(this.respError['status'] !== "200")
+      return true
     return false;
   }
   
@@ -53,11 +58,31 @@ export class LoginComponent implements OnInit {
     }
     this.http.post(`${environment.api_url}/authenticate`, body).subscribe((res: any) => {
       localStorage.setItem('accessToken', res['jwt']);
+      this.respError.status = "200";
+      this.respError.show = true;
       this.userService.populate()
       setTimeout(()=>{
-        this.router.navigateByUrl('/student/lesson');
+        this.router.navigateByUrl('/student/lessons');
       }, 300)
-    })
+    },
+    (err) => {
+      if(err.status == 401) {
+        this.respError.status = "401";
+        this.respError.message = "Хэрэглэгчийн нэр болон нууц үг буруу байна.";
+        this.respError.show = true;
+      }
+      if(err.status == 404) {
+        
+      }
+      // if (err.error.message == 'TokenExpiredError') {
+      //   //this.loggedIn = false;
+      //   //DO.. try refresh token. if refreshed: this.loggedIn = true
+      // } else {
+      //   // for any other errors:
+      //   //this.loggedIn = false;
+      // }
+    });
+
   }
 
 }

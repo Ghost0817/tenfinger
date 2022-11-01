@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+
+type MsgType = 'default' |'info'|'success'| '';
 
 @Component({
   selector: 'x-messages',
@@ -8,13 +10,16 @@ import { Component, Input, OnInit } from '@angular/core';
 export class XMessagesComponent implements OnInit {
 
   @Input()
-  msgType!: String;
+  msgType!: MsgType;
   
   @Input()
   setIcon!: String;
 
   @Input()
   msgText!: String;
+
+  @Input()
+  @Output()
   disbaleMessage: Boolean = false;
 
   constructor() { }
@@ -23,8 +28,7 @@ export class XMessagesComponent implements OnInit {
   }
 
   handleClick(event: Event) { 
-    if (!this.disbaleMessage)
-      this.disbaleMessage = true
+    if (!this.disbaleMessage) { this.disbaleMessage = true; }
   } 
 
 }

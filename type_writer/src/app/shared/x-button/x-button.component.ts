@@ -1,4 +1,4 @@
-import { Attribute, Component, Input, OnInit } from '@angular/core';
+import { Attribute, Component, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 type MyButton = 'submit' | 'button';

@@ -100,6 +100,16 @@ export class PreferencesComponent implements OnInit {
       console.log(response);
 
       this.profileForm.controls['username'].setValue(response.username);
+      this.profileForm.controls['firstname'].setValue(response.firstname);
+      this.profileForm.controls['lastname'].setValue(response.lastname);
+      this.profileForm.controls['mygender'].setValue(response.gender);
+      this.profileForm.controls['email'].setValue(response.email);
+
+      this.optionsForm.controls['measureSpeed'].setValue(response.measureSpeed);
+      this.optionsForm.controls['enableSounds'].setValue(response.enableSounds);
+
+      this.changePasswordForm.controls['newpassword'].setValue(response.password);
+      this.changePasswordForm.controls['newre_password'].setValue(response.re_password);
     });
     console.log(this.username);
     

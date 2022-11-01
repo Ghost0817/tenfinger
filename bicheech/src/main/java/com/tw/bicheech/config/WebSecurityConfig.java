@@ -32,9 +32,6 @@ public class WebSecurityConfig {
 	private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
 
 	@Autowired
-	private UserDetailsService jwtUserDetailsService;
-
-	@Autowired
 	private JwtRequestFilter jwtRequestFilter;
 
 //	@Autowired
@@ -61,7 +58,7 @@ public class WebSecurityConfig {
 		httpSecurity.cors().configurationSource(corsConfigurationSource()).and().csrf().disable()
 				// dont authenticate this particular request
 				.authorizeRequests()
-				.antMatchers("/authenticate","/ws/**","/app/*").permitAll()
+				.antMatchers("/authenticate","/register-student","/ws/**","/app/*").permitAll()
 				//.antMatchers("/ws/*").permitAll()
 				//.antMatchers("/authenticate").permitAll()
 				// all other requests need to be authenticated

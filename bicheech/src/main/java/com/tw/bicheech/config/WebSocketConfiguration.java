@@ -50,7 +50,7 @@ public class WebSocketConfiguration implements WebSocketMessageBrokerConfigurer 
 
         registry.addEndpoint("/ws")
                 .setAllowedOrigins(domains)
-                //.setHandshakeHandler(new UserHandshakerHandler())
+                .setHandshakeHandler(new UserHandshakerHandler())
                 //.setHandshakeHandler(handshakeHandler())
                 //.addInterceptors(new HttpHandshakeInterceptor())
                 .withSockJS()

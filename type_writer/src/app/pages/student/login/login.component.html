@@ -6,7 +6,7 @@
                 <p>Please log in to continue.</p>
                 <div *ngIf="getError() == true; then error"></div>
                 <ng-template #error>
-                    <div class="msg-error">error.message</div>
+                    <x-messages [msgType]="'default'" [msgText]="respError.message" [disbaleMessage]="!getError()"></x-messages>
                 </ng-template>
                 <div *ngIf="getGrade() == true; then grade"></div>
                 <ng-template #grade>
@@ -23,7 +23,15 @@
                     <input type="hidden" name="_csrf_security_token" value="testy" />
                     <input type="hidden" name="_target_path" value="homepage" />
 
-                    <input type="submit" name="login" class="btn btn-defualt" (click)="login()" value="Login"/>
+                    
+            
+                <div class="form-row">
+                    <div class="input-group">
+                        <x-button text="Login" type="submit" [parentForm]="regForm"></x-button>
+                    </div>
+                </div>
+
+                    <!-- <input type="submit" name="login" class="btn btn-defualt" (click)="login()" value="Login"/> -->
                     <br /><br />
                     <a routerLink="/student/forgot" routerLinkActive="active" target="_BLANK" class="sign-up">I forgot my password!</a>
                 </form>
