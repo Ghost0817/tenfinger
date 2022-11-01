@@ -5,6 +5,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">Forgot password</div>
             <div class="panel-body">
+                <x-messages [msgType]="'attention'" [msgText]="'looks like you clicked on an invalid password reset link. Please try again.'"></x-messages>
         
                 <form class="form-container" [formGroup]="regForm" (ngSubmit)="onSubmit($event)">
                     <x-input formControlName="email" fieldType="email" fieldName="email" [parentForm]="regForm" formLabel="Email"></x-input>
@@ -13,7 +14,6 @@
                     <div *ngIf="recaptchaField?.invalid && (recaptchaField?.dirty || recaptchaField?.touched)" class="invalid-feedback">
                       <div *ngIf="recaptchaField?.errors?.['required']">This field is required.</div>
                     </div>
-    
     
                     <div class="form-row">
                         <div class="input-group">

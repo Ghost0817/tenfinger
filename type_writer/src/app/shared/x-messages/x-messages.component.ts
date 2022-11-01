@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 
-type MsgType = 'default' |'info'|'success'| '';
+type MsgType = 'default' |'info'|'success'| 'warning'| 'attention'| 'danger';
 
 @Component({
   selector: 'x-messages',

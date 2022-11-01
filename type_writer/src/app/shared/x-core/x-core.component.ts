@@ -45,6 +45,9 @@ export class XCoreComponent implements OnInit {
       </span>
 
     </ng-container>
+    <ng-container *ngIf="!formField?.dirty">
+      <span class="field-error">&nbsp;</span>
+    </ng-container>
   `,
   styles: ['.field-error{display: block;width: 100%;margin-top: 0.25rem;font-size: .875em;color: #dc3545;}']
 })

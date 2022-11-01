@@ -23,7 +23,7 @@ export class ForgotComponent implements OnInit {
   ngOnInit(): void {
     this.regForm = new FormGroup({
       email: new FormControl(
-        'Sainzaya@example.com',
+        '',
         {
           validators: [
             Validators.required,
@@ -43,8 +43,6 @@ export class ForgotComponent implements OnInit {
     return this.regForm.get('recaptcha');
   }
 
-  
-
   onSubmit(event: any) {
     if (this.regForm.invalid) {
       for (const control of Object.keys(this.regForm.controls)) {
@@ -58,7 +56,6 @@ export class ForgotComponent implements OnInit {
     }
     this.http.post(`${environment.api_url}/forgot`, body).subscribe(
       (res: any) => {
-
         this.showSuccessPage = true;
       }
     );
