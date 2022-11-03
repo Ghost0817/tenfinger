@@ -85,7 +85,36 @@
             </ul>
         </section>
 
-        
+        <section class="widget_accordion">
+            <ul>
+                <li *ngFor="let category of cateroties">
+                    <article>
+                        <div class="button">
+                            <span>+</span>
+                            <span>-</span>
+                        </div>
+                        <div class="accordion-item">
+                            <h2>
+                                <a class="lang-course" (click)="getLessons('MONGOLIAN')">
+                                    <label>{{ category.enTitle }}</label>
+                                </a>
+                            </h2>
+                        </div>
+                        <div class="item-container" style="display: block;">
+                            <ul>
+                                <li *ngFor="let lesson of category.lessons">
+                                    <a [routerLink]="['/student/typing-test'] "  [queryParams]="{lang: currLng, test: lesson.slug }">
+                                        <label>{{ lesson.enTitle }}</label>
+                                        <span class="start-link">{{lesson.enBttnLbl}} »</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                </li>
+            </ul>
+        </section>
 
 
     </div>

@@ -9,6 +9,7 @@ export class XDialogComponent {
   
   @Input()
   isClose:boolean = false;
+  
   @Input()
   hasBgLayout:boolean = true;
   

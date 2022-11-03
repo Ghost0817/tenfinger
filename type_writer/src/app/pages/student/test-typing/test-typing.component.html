@@ -1,1 +1,117 @@
-<p>test-typing works!</p>
+<div class="typing-container super">
+    <div class="top-zar" style="width: 970px;height: 90px;">
+      top banner
+    </div>
+    <div class="left-zar" style="width: 300px;height: 600px;">
+      left banner
+    </div>
+    <div class="container-main">
+  
+      <x-messages [msgType]="'default'" [msgText]="'You are not logged in. Typing progress will not be saved.'"></x-messages>
+  
+      <!-- <div class="bread-crumb">
+        <div class="pull-left">
+            <a href="/en/student/start" target="_top">Course</a> /
+            <a href="/en/student/lesson/english/" target="_top">English course</a> /
+            <a href="/en/student/lesson/english/open/BEGINNER_COURSE" target="_top" id="courseLink">Beginner Course</a> /
+            <a href="#" onclick="javascript:$('.bs-example-modal-sm').modal({'keyboard'  : true,'how' : true });" target="_top" id="lessonLink">The Home Row Keys</a> /
+            <strong id="exercise-title" style="visibility: visible;">#1 &gt; Долоовор хуруунууд: J ба F</strong>
+        </div>
+        <div class="pull-right" style="position: relative;">
+            <a href="/en/student/english/1/316/" id="start-over">Start Over</a>
+        </div>
+      </div> -->
+  
+      <div class="typing-status">
+  
+        <div class="time">{{strTime}}</div>
+  
+        <div class="wpm">{{wpm}} wpm</div>
+  
+        <div class="pro">{{accuracy}}% accuracy</div>
+  
+        <div class="lwpm">{{wpm}} lesson wpm</div>
+  
+        <div class="lpro">{{accuracy}}% lesson acc</div>
+  
+        <div class="volume off" id="volume"></div>
+  
+      </div>
+  
+      <ng-template [ngIf]="lessons">
+  
+        <div class="typing-box">
+          <div class="typing-text">
+        
+            <form [formGroup]="formGroup" *ngIf="formGroup" (keyup.space)="onSpace()" (keyup.backspace)="onBackspace()">
+                <input autofocus type="text" autocomplete="off" formControlName="wrote" class="inp_text" (blur)="getbackfocus($event)"/>
+                <div class="line-break">
+                  <span class="word-{{currentWord}}" *ngFor="let word of words, let currentWord = index">
+                    <span [ngClass]="{'letter-right': this.typingProcess[currentWord].letters[index] === true,
+                    'letter-wrong': this.typingProcess[currentWord].letters[index] === false,
+                  'letter': true}"
+                          *ngFor="let letter of getLetters(word); let index = index">{{letter}}</span>
+                  </span>
+                </div>
+
+                <!-- <div class="screenBasic-footer">
+                  <div class="screenBasic-footerText">Page 2</div>
+                </div> -->
+            </form>
+    
+          </div>
+        </div>
+    
+      </ng-template>
+  
+    </div>
+  </div>
+  <x-dialog [hasBgLayout]="true" [isClose]="true">
+
+    <div class="pillar">
+      <div class="smallcaps">
+          Test Length Estimate: aaaa
+      </div>
+        <h2 class="">16 minutes</h2>
+    </div>
+    <p class="">Based on an average typing speed of 30 wpm, this test will take 16 minutes to complete. Make
+        sure you have enough time to finish, otherwise you can <a routerLink="/student/tests">go back</a> and try a
+        different test.</p>
+    <p class="">
+        Take this 2 Page typing test as many times as you like, and be sure to show off your best results with
+        our shareable certificate of completion. On the next screen, the timer won't start until you start
+        typing! Continue typing through the content until the timer ends.
+    </p>
+    <div class="">
+        <button class="btn" data-tooltip="Tip: Press ENTER to continue" >
+            Continue
+        </button>
+    </div>
+
+  </x-dialog>
+  
+
+  <x-dialog [hasBgLayout]="true" [isClose]="true">
+
+    <div class="pillar">
+      <div class="smallcaps">
+          Test Length Estimate: 
+      </div>
+        <h2 class="">Typing Test Complete!</h2>
+    </div>
+    <p class="">Typing Test Complete!</p>
+    <p class="">
+      You typed the 3 Minute Typing Test.
+    </p>
+    <p class="">
+      Your speed was 19 WPM with 88% accuracy!
+    </p>
+    <div class="">
+        <button class="btn" data-tooltip="Tip: Press ENTER to continue" >
+            Continue
+        </button>
+    </div>
+
+    
+
+  </x-dialog>
