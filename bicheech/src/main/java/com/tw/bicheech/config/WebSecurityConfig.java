@@ -58,7 +58,16 @@ public class WebSecurityConfig {
 		httpSecurity.cors().configurationSource(corsConfigurationSource()).and().csrf().disable()
 				// dont authenticate this particular request
 				.authorizeRequests()
-				.antMatchers("/authenticate","/register-student","/ws/**","/app/*").permitAll()
+				.antMatchers("/authenticate",
+						"/register-student",
+						"/forgot",
+						"/reset-password",
+						"/wall-of-fame",
+						"/hall-of-fame-list",
+						"/lesson",
+						"/exercise",
+						"/test",
+						"/ws/**","/app/*").permitAll()
 				//.antMatchers("/ws/*").permitAll()
 				//.antMatchers("/authenticate").permitAll()
 				// all other requests need to be authenticated

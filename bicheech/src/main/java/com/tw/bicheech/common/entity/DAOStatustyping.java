@@ -47,8 +47,8 @@ public class DAOStatustyping {
     private String sess_id;
 
     @ManyToOne
-    @JoinColumn(name = "student_id")
-    private DAOUser student;
+    @JoinColumn(name = "user_id")
+    private DAOUser user;
 
     @ManyToOne
     @JoinColumn(name = "keyboard")
@@ -154,12 +154,12 @@ public class DAOStatustyping {
         this.sess_id = sess_id;
     }
 
-    public DAOUser getStudent() {
-        return student;
+    public DAOUser getUser() {
+        return user;
     }
 
-    public void setStudent(DAOUser student) {
-        this.student = student;
+    public void setUser(DAOUser user) {
+        this.user = user;
     }
 
     public DAOKeyboard getKeyboard() {

@@ -38,10 +38,10 @@ export class LessonsComponent implements OnInit {
 
     this.userService.isAuthenticated.pipe(distinctUntilChanged()).subscribe(isAuth =>{
       this.isAuthenticated = isAuth
-    })
+    });
     this.userService.currentUser.pipe(distinctUntilChanged()).subscribe(user => {
       this.currentUser = user;
-    })
+    });
   }
 
   ngOnInit(): void {

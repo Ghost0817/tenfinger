@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { distinctUntilChanged } from 'rxjs';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
@@ -13,7 +14,15 @@ export class StudentComponent implements OnInit {
   public menu:any;
 
   constructor(private router: Router,
-              private userService: UserService) { 
+              private userService: UserService) {
+    this.userService.isAuthenticated.pipe(distinctUntilChanged()).subscribe(isAuth =>{
+      console.log(isAuth)
+      this.isAuthenticated = isAuth
+    });
+    this.userService.currentUser.pipe(distinctUntilChanged()).subscribe(user => {
+      console.debug(user);
+      this.currentUser = user;
+    });
   }
 
   ngOnInit(): void {

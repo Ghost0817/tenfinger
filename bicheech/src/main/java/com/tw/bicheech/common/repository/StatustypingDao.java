@@ -21,7 +21,7 @@ public interface StatustypingDao  extends CrudRepository<DAOStatustyping, Intege
             "            inner join DAOExercise e ON a.exercise.id = e.id" +
             "            inner join DAOCategory l ON e.lesson.id = l.id and l.categoryType = 'LESSON'" +
             "            inner join DAOCategory c ON l.categoryParent.id = c.id and c.categoryType = 'CATEGORY'" +
-            "            inner join DAOUser s ON a.student.id = s.id and c.categoryType = 'CATEGORY'" +
+            "            inner join DAOUser s ON a.user.id = s.id and c.categoryType = 'CATEGORY'" +
             "            where c.categoryParent.id = ?1 and c.id not in (13,14) " +
             "            group by s.id " )
     List<Map<String, Object>> findWallFame(Integer lang);
@@ -35,7 +35,7 @@ public interface StatustypingDao  extends CrudRepository<DAOStatustyping, Intege
             "            inner join DAOExercise as e ON a.exercise.id = e.id" +
             "            inner join DAOCategory as l ON e.lesson.id = l.id and l.categoryType = 'LESSON'" +
             "            inner join DAOCategory as c ON l.categoryParent.id = c.id and c.categoryType = 'CATEGORY'" +
-            "            inner join DAOUser as s ON a.student.id = s.id and c.categoryType = 'CATEGORY'" +
+            "            inner join DAOUser as s ON a.user.id = s.id and c.categoryType = 'CATEGORY'" +
             "            where c.categoryParent.id = ?1 and c.id not in (13,14)" +
             "            group by s.id")
     List<HallOfFameTop> findHallOfFame(Integer lang);
@@ -48,7 +48,7 @@ public interface StatustypingDao  extends CrudRepository<DAOStatustyping, Intege
             "            inner join DAOExercise e ON a.exercise.id = e.id" +
             "            inner join DAOCategory l ON e.lesson.id = l.id and l.categoryType = 'LESSON'" +
             "            inner join DAOCategory c ON l.categoryParent.id = c.id and c.categoryType = 'CATEGORY'" +
-            "            where a.student.id = ?1 and c.categoryParent.id = ?2 and c.id not in (13,14)")
+            "            where a.user.id = ?1 and c.categoryParent.id = ?2 and c.id not in (13,14)")
     List<HallOfFameTop> findSkillLevel(Integer id, Integer lang);
 
 }

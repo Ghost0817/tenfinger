@@ -124,13 +124,9 @@ public class LessonDetailsService {
         HallOfFameTop objHallOfFameTop = new HallOfFameTop();
         for (Map<String, Object> item: objList) {
             if (!item.isEmpty()) {
-                objHallOfFameTop.setUsername(item.get("username").toString());
-                objHallOfFameTop.setTime(((Long) item.get("time")).intValue());
-                objHallOfFameTop.setAcc((double) (item.get("acc")));
-                objHallOfFameTop.setCorrecthit(((Long) item.get("correcthit")).intValue());
-
-                objHallOfFameTop.setNetSpeed(Double.parseDouble(item.get("netSpeed").toString()));
-                objHallOfFameTop.setMistakehit(((Long) item.get("mistakehit")).intValue());
+                objHallOfFameTop.setTopuser(item.get("username").toString());
+                objHallOfFameTop.setTopspeed(Double.parseDouble(item.get("netSpeed").toString()));
+                objHallOfFameTop.setTopprec(Double.parseDouble(item.get("acc").toString()));
                 //objHallOfFameTop.setTitle(item.get("title").toString());
             }
         }
