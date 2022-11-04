@@ -3,9 +3,11 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
+  HttpErrorResponse
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { EMPTY, Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -26,6 +28,31 @@ export class AuthInterceptor implements HttpInterceptor {
     }
 
     const request = req.clone({ setHeaders: headersConfig });
-    return next.handle(request);
+    return next.handle(request).pipe(s => this.handleErrors(s, req.url));
+  }
+
+  private handleErrors(
+    source: Observable<HttpEvent<unknown>>,
+    urlPath: string
+  ): Observable<HttpEvent<unknown>> {
+    return source.pipe(
+      catchError((error: HttpErrorResponse) => {
+        // try to avoid errors on logout
+        // therefore we check the url path of '/authenticate'
+        if (error.status === 401 && !urlPath.includes('/authenticate')) {
+          return this.handle401();
+        }
+
+        // rethrow error
+        return throwError(() => error);
+      })
+    );
+  }
+
+  private handle401() {
+    console.log("accessToken");
+    localStorage.removeItem('accessToken');
+    //this.authFacade.logout();
+    return EMPTY;
   }
 }

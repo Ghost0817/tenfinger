@@ -36,12 +36,15 @@ export class LessonsComponent implements OnInit {
       this.wallOfFame = response;
     });
 
+    console.log(this.userService.getCurrentUser());
+
     this.userService.isAuthenticated.pipe(distinctUntilChanged()).subscribe(isAuth =>{
       this.isAuthenticated = isAuth
     });
     this.userService.currentUser.pipe(distinctUntilChanged()).subscribe(user => {
       this.currentUser = user;
     });
+    console.log(this.isAuthenticated);
   }
 
   ngOnInit(): void {

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -58,18 +59,17 @@ public class WebSecurityConfig {
 		httpSecurity.cors().configurationSource(corsConfigurationSource()).and().csrf().disable()
 				// dont authenticate this particular request
 				.authorizeRequests()
-				.antMatchers("/authenticate",
-						"/register-student",
-						"/forgot",
-						"/reset-password",
-						"/wall-of-fame",
-						"/hall-of-fame-list",
-						"/lesson",
-						"/exercise",
-						"/test",
-						"/ws/**","/app/*").permitAll()
-				//.antMatchers("/ws/*").permitAll()
-				//.antMatchers("/authenticate").permitAll()
+				.antMatchers("/ws/*").permitAll()
+				.antMatchers(HttpMethod.POST, "/authenticate").permitAll()
+				.antMatchers(HttpMethod.POST, "/register-student").permitAll()
+				.antMatchers(HttpMethod.POST, "/forgot").permitAll()
+				.antMatchers(HttpMethod.POST, "/reset-password").permitAll()
+				.antMatchers(HttpMethod.GET, "/wall-of-fame").permitAll()
+				.antMatchers(HttpMethod.POST, "/hall-of-fame-list").permitAll()
+				.antMatchers(HttpMethod.GET, "/lesson").permitAll()
+				.antMatchers(HttpMethod.POST, "/exercise").permitAll()
+				.antMatchers(HttpMethod.POST, "/test").permitAll()
+				.antMatchers("/app/*").permitAll()
 				// all other requests need to be authenticated
 				.anyRequest().authenticated().and().
 				// make sure we use stateless session; session won't be used to

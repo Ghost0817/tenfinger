@@ -26,7 +26,7 @@ export class UserService {
     .subscribe((data: any) => {
       console.log(data);
       if (data.username) {
-        this.setAuth(data.username)
+        this.setAuth(data)
       } else {
         this.purgeAuth()
       }
@@ -35,7 +35,7 @@ export class UserService {
 
   setAuth(data: any) {
     // Save JWT sent from server in localstorage
-    this.currentUserSubject.next(data.user);
+    this.currentUserSubject.next(data);
     // Set isAuthenticated to true
     this.isAuthenticatedSubject.next(true);
   }

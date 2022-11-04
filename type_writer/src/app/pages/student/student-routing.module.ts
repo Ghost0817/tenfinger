@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from 'src/app/core/auth.guard';
 import { StudentComponent } from './student.component';
 
 const routes: Routes = [{
@@ -68,7 +69,8 @@ const routes: Routes = [{
   }, {
     path: 'preferences',
     loadChildren: () => import('./preferences/preferences.module').then(m => m.PreferencesModule),
-    title: 'Preferences - Bicheech.com'
+    title: 'Preferences - Bicheech.com',
+    canActivate: [AuthGuard]
   }, {
     path: 'race',
     loadChildren: () => import('./type-race/type-race.module').then(m => m.TypeRaceModule),

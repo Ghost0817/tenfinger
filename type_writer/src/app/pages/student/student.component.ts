@@ -23,13 +23,16 @@ export class StudentComponent implements OnInit {
       console.debug(user);
       this.currentUser = user;
     });
+    
+    this.isAuthenticated = localStorage.getItem("accessToken")? true: false;
   }
 
   ngOnInit(): void {
   }
 
   logout(){
-    localStorage.removeItem('accessToken');
+    //localStorage.removeItem('accessToken');
+    this.userService.purgeAuth()
     this.router.navigateByUrl('/student/login');
   }
 
