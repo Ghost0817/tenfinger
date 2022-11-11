@@ -3,6 +3,105 @@ import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, FormsModule, FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { XFieldErrorsComponent } from '../x-core/x-core.component';
 
+type WRAP = 'hard' |'soft';
+
+@Component({
+  selector: 'x-textarea',
+  template: `
+  <div class="form-row">
+    <div class="input-group">
+        <label class="form-label" [for]="fieldName">{{ formLabel }}</label>
+        
+        <textarea class="form-control" 
+          [ngClass]="{'has-error': formField.invalid && (formField.dirty || formField.touched)}"
+          [disabled]="isDisabled"
+          (input)="changed($any($event).target.value)"
+          (blur)="touched"
+          (id)="fieldName"
+          (name)="fieldName"
+          (maxlength)="maxlength"
+          [cols]="cols"
+          [rows]="rows"
+          (style)="fieldStyle"
+          (readonly)="fieldReadonly"
+          (required)="fieldRequired"
+          [wrap]="fieldWrap"
+          (placeholder)="fieldPlaceholder"
+          ></textarea>
+
+      </div>
+  </div>
+  `,
+  styleUrls: ['./x-textarea.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(()=> XTextareaComponent),
+      multi: true
+    }
+  ]
+})
+export class XTextareaComponent implements ControlValueAccessor {
+
+  @Input()
+  public parentForm!: FormGroup;
+
+  @Input()
+  public fieldName!: string;
+
+  @Input()
+  public maxlength!: number;
+
+  @Input()
+  public cols: number = 0;
+
+  @Input()
+  public rows: number = 0;
+
+  @Input()
+  public formLabel!: string;
+
+  @Input()
+  public fieldReadonly!: string;
+
+  @Input()
+  public fieldRequired!: boolean;
+
+  @Input()
+  public fieldWrap!: WRAP;
+
+  @Input()
+  public fieldStyle!: string;
+
+  @Input()
+  public fieldPlaceholder: string | "" | undefined;
+
+  public changed!: (value: string) => void;
+
+  public touched!: () => void;
+
+  public isDisabled!: boolean;
+
+  constructor() { }
+  writeValue(obj: any): void {
+    throw new Error('Method not implemented.');
+  }
+  registerOnChange(fn: any): void {
+    throw new Error('Method not implemented.');
+  }
+  registerOnTouched(fn: any): void {
+    throw new Error('Method not implemented.');
+  }
+  setDisabledState?(isDisabled: boolean): void {
+    throw new Error('Method not implemented.');
+  }
+
+  get formField  (): FormControl {
+    // @ts-ignore
+    return this.parentForm.get(this.fieldName) as FormControl;
+  }
+
+}
 
 @Component({
   selector: 'x-input',

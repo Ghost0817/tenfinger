@@ -20,11 +20,11 @@
                 <div id="contact-form">
 
                     <form class="form-container" [formGroup]="contactForm" (ngSubmit)="onSubmit($event)">
-                        <x-input formControlName="name" fieldType="name" fieldName="name" [parentForm]="contactForm" formLabel="name"></x-input>
+                        <x-input formControlName="name" fieldType="text" fieldName="name" [parentForm]="contactForm" formLabel="Name"></x-input>
 
-                        <x-input formControlName="email" fieldType="email" fieldName="email" [parentForm]="contactForm" formLabel="email"></x-input>
+                        <x-input formControlName="email" fieldType="email" fieldName="email" [parentForm]="contactForm" formLabel="Email"></x-input>
 
-                        <x-input formControlName="body" fieldType="body" fieldName="body" [parentForm]="contactForm" formLabel="body"></x-input>
+                        <x-textarea formControlName="body" fieldName="body" [parentForm]="contactForm" formLabel="Body" [rows]="8"></x-textarea>
         
                         <re-captcha id="recaptcha" name="recaptcha" formControlName="recaptcha" [(ngModel)]="token" required [class.is-invalid]="recaptchaField?.invalid && (recaptchaField?.dirty || recaptchaField?.touched)"></re-captcha>
 
@@ -39,7 +39,8 @@
                             </div>
                         </div>
                     </form>
-
+                    {{ contactForm.value| json }}
+                    {{contactForm.valid}}
                 </div>
                 <div class="clear"></div>
             </div>

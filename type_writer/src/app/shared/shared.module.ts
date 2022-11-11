@@ -3,7 +3,7 @@ import { XRatingComponent } from './x-rating/x-rating.component';
 import { XTableComponent } from './x-table/x-table.component';
 import { XButtonComponent } from './x-button/x-button.component';
 import { XDialogComponent } from './x-dialog/x-dialog.component';
-import { XFormComponent, XRadioboxComponent, XSelectComponent } from './x-form/x-form.component';
+import { XFormComponent, XRadioboxComponent, XSelectComponent, XTextareaComponent } from './x-form/x-form.component';
 import { XMessagesComponent } from './x-messages/x-messages.component';
 import { CommonModule } from '@angular/common';
 import { XInputComponent } from './x-form/x-form.component';
@@ -24,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     XDialogComponent,
     XFormComponent,
     XInputComponent,
+    XTextareaComponent,
     XMessagesComponent,
     XFieldErrorsComponent,
     XGridComponent,
@@ -50,6 +51,7 @@ import { FormsModule } from '@angular/forms';
       XDialogComponent,
       XFormComponent,
       XInputComponent,
+      XTextareaComponent,
       XMessagesComponent,
       XRegisterBoxComponent,
       XSkillLevelComponent,

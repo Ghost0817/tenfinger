@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-x-core',
+  selector: 'x-core',
   template: ``,
   styleUrls: ['./x-core.component.scss']
 })

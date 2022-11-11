@@ -38,13 +38,7 @@ export class ContactUsComponent implements OnInit {
             Validators.maxLength(40),
             Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
         ]}),
-        body: new FormControl('',{
-          validators: [
-            Validators.required,
-            Validators.minLength(3),
-            Validators.maxLength(500)
-          ]
-        }),
+        body: new FormControl(''),
         recaptcha: new FormControl(
           '',
           {
@@ -67,7 +61,9 @@ export class ContactUsComponent implements OnInit {
     }
 
     const body = {
+      name: this.contactForm.value['name'],
       email: this.contactForm.value['email'],
+      content: this.contactForm.value['body']
     }
     this.http.post(`${environment.api_url}/contactus`, body).subscribe(
       (res: any) => {

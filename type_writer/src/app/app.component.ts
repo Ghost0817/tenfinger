@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'type_writer';
+  title = 'Learn to Type | Free Typing Tutor | Typing Course - Bicheech.com';
 }

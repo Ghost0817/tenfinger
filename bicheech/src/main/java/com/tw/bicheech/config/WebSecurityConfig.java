@@ -69,6 +69,7 @@ public class WebSecurityConfig {
 				.antMatchers(HttpMethod.GET, "/lesson").permitAll()
 				.antMatchers(HttpMethod.POST, "/exercise").permitAll()
 				.antMatchers(HttpMethod.POST, "/test").permitAll()
+				.antMatchers(HttpMethod.POST, "/contactus").permitAll()
 				.antMatchers("/app/*").permitAll()
 				// all other requests need to be authenticated
 				.anyRequest().authenticated().and().
