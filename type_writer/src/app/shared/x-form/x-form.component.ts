@@ -10,23 +10,11 @@ type WRAP = 'hard' |'soft';
   template: `
   <div class="form-row">
     <div class="input-group">
-        <label class="form-label" [for]="fieldName">{{ formLabel }}</label>
+        <label class="form-label">{{ formLabel }}</label>
         
         <textarea class="form-control" 
-          [ngClass]="{'has-error': formField.invalid && (formField.dirty || formField.touched)}"
-          [disabled]="isDisabled"
           (input)="changed($any($event).target.value)"
-          (blur)="touched"
-          (id)="fieldName"
           (name)="fieldName"
-          (maxlength)="maxlength"
-          [cols]="cols"
-          [rows]="rows"
-          (style)="fieldStyle"
-          (readonly)="fieldReadonly"
-          (required)="fieldRequired"
-          [wrap]="fieldWrap"
-          (placeholder)="fieldPlaceholder"
           ></textarea>
 
       </div>
@@ -50,31 +38,31 @@ export class XTextareaComponent implements ControlValueAccessor {
   public fieldName!: string;
 
   @Input()
-  public maxlength!: number;
+  public fieldType!: string;
 
   @Input()
-  public cols: number = 0;
+  public fieldMax!: number;
 
   @Input()
-  public rows: number = 0;
+  public fieldMin!: number;
 
   @Input()
-  public formLabel!: string;
-
-  @Input()
-  public fieldReadonly!: string;
-
-  @Input()
-  public fieldRequired!: boolean;
-
-  @Input()
-  public fieldWrap!: WRAP;
+  public fieldStep!: number;
 
   @Input()
   public fieldStyle!: string;
 
   @Input()
+  public fieldPattern!: string;
+
+  @Input()
   public fieldPlaceholder: string | "" | undefined;
+
+  @Input()
+  public formLabel!: string;
+
+  @Input('ngModel')
+  public value: string | "" | undefined;
 
   public changed!: (value: string) => void;
 
@@ -83,22 +71,27 @@ export class XTextareaComponent implements ControlValueAccessor {
   public isDisabled!: boolean;
 
   constructor() { }
-  writeValue(obj: any): void {
-    throw new Error('Method not implemented.');
-  }
-  registerOnChange(fn: any): void {
-    throw new Error('Method not implemented.');
-  }
-  registerOnTouched(fn: any): void {
-    throw new Error('Method not implemented.');
-  }
-  setDisabledState?(isDisabled: boolean): void {
-    throw new Error('Method not implemented.');
-  }
 
   get formField  (): FormControl {
     // @ts-ignore
     return this.parentForm.get(this.fieldName) as FormControl;
+  }
+
+  writeValue(obj: any): void {
+    //throw new Error('Method not implemented.');
+    this.value = obj;
+  }
+  registerOnChange(fn: any): void {
+    //throw new Error('Method not implemented.');
+    this.changed = fn;
+  }
+  registerOnTouched(fn: any): void {
+    //throw new Error('Method not implemented.');
+    this.touched = fn
+  }
+  setDisabledState?(isDisabled: boolean): void {
+    //throw new Error('Method not implemented.');
+    this.isDisabled = isDisabled;
   }
 
 }
